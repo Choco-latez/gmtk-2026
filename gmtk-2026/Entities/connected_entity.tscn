@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bunpfddbtpauc"]
+
+[ext_resource type="Script" uid="uid://erjcxocx6xu2" path="res://Entities/Scripts/ConnectedEntity.gd" id="1_rrb37"]
+
+[node name="ConnectedEntity" type="Node2D" unique_id=1062453546]
+script = ExtResource("1_rrb37")
