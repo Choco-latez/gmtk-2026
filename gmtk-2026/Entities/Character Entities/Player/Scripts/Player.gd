@@ -2,26 +2,40 @@ extends CharacterBody2D
 
 
 const SPEED = 120.0
-const JUMP_VELOCITY = -100.0
+var JUMP_VELOCITY = -100.0
 var can_jump : bool
 var continue_jump : bool
 
 var base_additional_jumps : int = 1
 var additional_jumps_available : int
 
-
 var dive_available : bool = true
 var diving : bool = false
+var grav_norm = true
 
 
+func change_gravity(new_grav : Vector2) -> void:
+	JUMP_VELOCITY *= -1
+	PhysicsServer2D.area_set_param(get_viewport().find_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, new_grav)
+
+func _change_player_grav() -> void:
+	if Input.is_action_just_pressed("InvertGrav"):
+		if grav_norm == true:
+			change_gravity(Vector2.UP)
+			grav_norm = false
+		else:
+			change_gravity(Vector2.DOWN)
+			grav_norm = true
 
 func _physics_process(delta: float) -> void:
+	_change_player_grav()
 	gravity(delta)
 	handle_dive()
 	handle_jump()
 	calculate_movement()
 
 	move_and_slide()
+	
 	
 	print(diving)
 

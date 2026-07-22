@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://dcmsbb2x3n66b"]
 
+[ext_resource type="Script" uid="uid://ban4q3g8ejr2f" path="res://Map/map_test.gd" id="1_dwmtj"]
 [ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_uxbqh"]
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/character_body_2d.tscn" id="2_wvdts"]
+[ext_resource type="PackedScene" uid="uid://cu5tca6vldp8p" path="res://Map/rigid_body_2d.tscn" id="4_hpyjb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvdts"]
 texture = ExtResource("1_uxbqh")
@@ -1040,6 +1042,7 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_wvdts")
 
 [node name="Map Test" type="Node2D" unique_id=1108890214]
+script = ExtResource("1_dwmtj")
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1144737448]
 
@@ -1051,3 +1054,7 @@ tile_set = SubResource("TileSet_lfxu0")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
 zoom = Vector2(5, 5)
+
+[node name="RigidBody2D" parent="." unique_id=1630588016 instance=ExtResource("4_hpyjb")]
+position = Vector2(47, -2)
+can_sleep = false
