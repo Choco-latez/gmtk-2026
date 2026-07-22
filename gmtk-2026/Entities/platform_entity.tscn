@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://42inx7lbpdpe"]
+
+[ext_resource type="Script" uid="uid://dxd1s770w8ev3" path="res://Entities/Scripts/platform_entity.gd" id="1_jdeh5"]
+
+[node name="PlatformEntity" type="Node2D" unique_id=149132156]
+script = ExtResource("1_jdeh5")
+tween_time = 2.0
+tween_type = 1
+loop = true
+end_wait = 1.0
+
+[node name="Position 1" type="Marker2D" parent="." unique_id=1098546154]
+position = Vector2(-60, -7)
+gizmo_extents = 2.0
+
+[node name="Position 2" type="Marker2D" parent="." unique_id=1895206018]
+position = Vector2(50, 22)
+gizmo_extents = 2.0
+
+[node name="Line Outer" type="Line2D" parent="." unique_id=1429065062]
+width = 1.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line Inner" type="Line2D" parent="." unique_id=1676634573]
+width = 0.5
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1973527898]
+
+[node name="Polygon2D" type="Polygon2D" parent="AnimatableBody2D" unique_id=1844406610]
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(1, 1, 1, -1, -1, -1, -1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D" unique_id=1156532691]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1787336620]
+
+[node name="End Wait Timer" type="Timer" parent="." unique_id=814755612]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="End Wait Timer" to="." method="_on_end_wait_timer_timeout"]
