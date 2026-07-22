@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	print(continue_jump)
+	print(can_jump)
 
 
 func gravity(delta:float):
@@ -32,6 +32,7 @@ func handle_jump():
 		velocity.y = JUMP_VELOCITY
 		$"Jump Timer".start()
 		$"Coyote Time".stop()
+		can_jump = false
 		continue_jump = true
 	elif Input.is_action_pressed("ui_accept") and continue_jump:
 		velocity.y += JUMP_VELOCITY/18
