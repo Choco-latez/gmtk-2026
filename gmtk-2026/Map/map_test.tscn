@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_uxbqh"]
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/character_body_2d.tscn" id="2_wvdts"]
+[ext_resource type="PackedScene" uid="uid://dds2p5sjha4ll" path="res://Entities/Character Entities/Spikes/Spikes.tscn" id="3_dwmtj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvdts"]
 texture = ExtResource("1_uxbqh")
@@ -1052,3 +1053,6 @@ position = Vector2(2, 41)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
 zoom = Vector2(5, 5)
+
+[node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
+position = Vector2(45, 52)

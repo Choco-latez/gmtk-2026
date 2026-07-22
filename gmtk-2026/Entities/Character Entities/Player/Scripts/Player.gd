@@ -16,10 +16,11 @@ var diving : bool = false
 
 var gravity:bool
 
-
+func die() -> void:
+	queue_free()
 
 func _ready() -> void:
-	apply_gravity(false)
+	apply_gravity(true)
 
 func _physics_process(delta: float) -> void:
 	pass
