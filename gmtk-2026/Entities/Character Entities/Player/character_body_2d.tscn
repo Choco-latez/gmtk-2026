@@ -2,32 +2,61 @@
 
 [ext_resource type="Script" uid="uid://7upgmkjoob0o" path="res://Entities/Character Entities/Player/Scripts/Player.gd" id="1_y01m2"]
 [ext_resource type="Texture2D" uid="uid://dpwrcb6mp1c8g" path="res://Entities/Character Entities/Player/Sprites/temp player.png" id="2_uuxyx"]
+[ext_resource type="Script" uid="uid://cboc2f7s0gqkx" path="res://Entities/Character Entities/Player/Scripts/normal_movement.gd" id="2_yglxg"]
+[ext_resource type="Script" uid="uid://cnfebcps46y8v" path="res://Entities/Character Entities/Player/Scripts/zero_gravity_movement.gd" id="3_u82tg"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfxu0"]
-radius = 3.0
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u82tg"]
+size = Vector2(6, 14)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1420188091]
+[node name="Player" type="CharacterBody2D" unique_id=1420188091]
 script = ExtResource("1_y01m2")
+
+[node name="Normal Movement" type="Node2D" parent="." unique_id=1987921560 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+script = ExtResource("2_yglxg")
+player = NodePath("..")
+
+[node name="Zero Gravity Movement" type="Node2D" parent="." unique_id=115890006 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+process_mode = 4
+script = ExtResource("3_u82tg")
+player = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1259494268]
 texture = ExtResource("2_uuxyx")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1772318761]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_lfxu0")
+shape = SubResource("RectangleShape2D_u82tg")
 
 [node name="Coyote Time" type="Timer" parent="." unique_id=767765018]
+unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true
 
 [node name="Jump Timer" type="Timer" parent="." unique_id=2075924328]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="Dive Timer" type="Timer" parent="." unique_id=861234098]
+unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="RaycastR" type="RayCast2D" parent="." unique_id=424401752]
+unique_name_in_owner = true
+position = Vector2(0, 5)
+target_position = Vector2(4, 0)
+
+[node name="RaycastL" type="RayCast2D" parent="." unique_id=297158571]
+unique_name_in_owner = true
+position = Vector2(0, 5)
+target_position = Vector2(-4, 0)
+
 [connection signal="timeout" from="Coyote Time" to="." method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="Coyote Time" to="Normal Movement" method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="Coyote Time" to="Zero Gravity Movement" method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Jump Timer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="Jump Timer" to="Normal Movement" method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Dive Timer" to="." method="_on_dive_timer_timeout"]
+[connection signal="timeout" from="Dive Timer" to="Normal Movement" method="_on_dive_timer_timeout"]
+[connection signal="timeout" from="Dive Timer" to="Zero Gravity Movement" method="_on_dive_timer_timeout"]
