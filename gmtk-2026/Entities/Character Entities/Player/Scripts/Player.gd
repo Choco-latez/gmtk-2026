@@ -34,7 +34,7 @@ func handle_jump():
 		$"Coyote Time".stop()
 		continue_jump = true
 	elif Input.is_action_pressed("ui_accept") and continue_jump:
-		velocity.y += JUMP_VELOCITY/7
+		velocity.y += JUMP_VELOCITY/18
 	if Input.is_action_just_released("ui_accept"):
 		$"Jump Timer".stop()
 		continue_jump = false
