@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b148ktydjt3f7"]
+
+[ext_resource type="Script" uid="uid://7upgmkjoob0o" path="res://Entities/Character Entities/Player/Scripts/Player.gd" id="1_y01m2"]
+[ext_resource type="Texture2D" uid="uid://dpwrcb6mp1c8g" path="res://Entities/Character Entities/Player/Sprites/temp player.png" id="2_uuxyx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfxu0"]
+radius = 3.0
+height = 14.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1420188091]
+script = ExtResource("1_y01m2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1259494268]
+texture = ExtResource("2_uuxyx")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1772318761]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_lfxu0")
+
+[node name="Coyote Time" type="Timer" parent="." unique_id=767765018]
+wait_time = 0.3
+one_shot = true
+
+[node name="Jump Timer" type="Timer" parent="." unique_id=2075924328]
+one_shot = true
+
+[connection signal="timeout" from="Coyote Time" to="." method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="Jump Timer" to="." method="_on_jump_timer_timeout"]
