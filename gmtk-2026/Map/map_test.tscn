@@ -27,7 +27,6 @@ dive_unlocked = true
 
 [node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
 position = Vector2(45, 52)
-collision_mask = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=510629068]
 visible = false
@@ -53,12 +52,3 @@ Signtext = "Hi"
 
 [node name="Sign Popup" parent="." unique_id=172546286 node_paths=PackedStringArray("signs") instance=ExtResource("6_fsokj")]
 signs = [NodePath("../Sign Entity")]
-
-[node name="CharacterBody2D" parent="." unique_id=1420188091 instance=ExtResource("2_wvdts")]
-position = Vector2(2, 41)
-base_additional_jumps = 5
-dive_unlocked = true
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
-zoom = Vector2(5, 5)
-position_smoothing_speed = 0.0
