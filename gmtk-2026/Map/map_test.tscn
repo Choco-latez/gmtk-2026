@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c8idgk45t7shn" path="res://Entities/extra_jump.tscn" id="5_s04jt"]
 [ext_resource type="PackedScene" uid="uid://cesnrjpymgyr4" path="res://UI/sign_popup.tscn" id="6_fsokj"]
 [ext_resource type="PackedScene" uid="uid://c4c3u1ieaa1cr" path="res://Entities/sign_entity.tscn" id="7_0j4rv"]
+[ext_resource type="PackedScene" uid="uid://n5k1cvfb7bpu" path="res://Map/exit_door.tscn" id="9_70vnw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvdts"]
 texture = ExtResource("1_uxbqh")
@@ -1064,6 +1065,9 @@ tile_map_data = PackedByteArray("AAD2//j/AAAAAAIAAAD3//j/AAABAAIAAAD4//j/AAABAAI
 position = Vector2(45, 52)
 collision_mask = 2
 
+[node name="Exit Door" parent="." unique_id=1807263708 instance=ExtResource("9_70vnw")]
+position = Vector2(166, -72)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=510629068]
 visible = false
 
@@ -1090,7 +1094,7 @@ Signtext = "Hi"
 signs = [NodePath("../Sign Entity")]
 
 [node name="CharacterBody2D" parent="." unique_id=1420188091 instance=ExtResource("2_wvdts")]
-position = Vector2(2, 41)
+position = Vector2(129, -88)
 base_additional_jumps = 5
 dive_unlocked = true
 

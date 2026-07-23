@@ -23,6 +23,19 @@ var gravity:bool = true
 @export var swan_time_unlocked: bool = false
 var swan_time_available :bool = true
 
+var cutscene_control : bool = false
+
+
+func start_cutscene():
+	cutscene_control = true
+	%"Normal Movement".process_mode = Node.PROCESS_MODE_DISABLED
+	%"Zero Gravity Movement".process_mode = Node.PROCESS_MODE_DISABLED
+	
+func stop_cutscene():
+	cutscene_control = false
+	apply_gravity(gravity)
+
+
 func swan_time():
 	if not swan_time_unlocked:
 		return
@@ -37,6 +50,8 @@ func swan_time():
 		AudioServer.playback_speed_scale = 1
 
 func die() -> void:
+	if cutscene_control:
+		return
 	if Savedata.fastdeath:
 		died.emit()
 		return
