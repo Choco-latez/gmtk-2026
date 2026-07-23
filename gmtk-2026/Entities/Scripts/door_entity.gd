@@ -44,6 +44,7 @@ func set_points(pointarr:PackedVector2Array):
 		elif point.y < 0:
 			vec.y +=0.5
 		%Line2D.add_point(vec)
+	
 		
 
 func move_door(open):

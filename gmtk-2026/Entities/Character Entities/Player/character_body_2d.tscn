@@ -247,6 +247,7 @@ _data = {
 collision_layer = 2
 script = ExtResource("1_y01m2")
 jump_particle_instance = ExtResource("2_jpkce")
+base_additional_jumps = 0
 
 [node name="Particles" type="Node2D" parent="." unique_id=494589182]
 position = Vector2(0, 6)
@@ -307,6 +308,15 @@ unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true
 
+[node name="Swan Time" type="Timer" parent="." unique_id=132042822]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Swan Time Recharge" type="Timer" parent="Swan Time" unique_id=793853900]
+unique_name_in_owner = true
+wait_time = 30.0
+one_shot = true
+
 [node name="Jump Timer" type="Timer" parent="." unique_id=2075924328]
 unique_name_in_owner = true
 one_shot = true
@@ -340,6 +350,8 @@ player = NodePath("..")
 [connection signal="timeout" from="Coyote Time" to="." method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Normal Movement" method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Zero Gravity Movement" method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="Swan Time" to="." method="_on_swan_time_timeout"]
+[connection signal="timeout" from="Swan Time/Swan Time Recharge" to="." method="_on_swan_time_recharge_timeout"]
 [connection signal="timeout" from="Jump Timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Jump Timer" to="Normal Movement" method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Dive Timer" to="." method="_on_dive_timer_timeout"]

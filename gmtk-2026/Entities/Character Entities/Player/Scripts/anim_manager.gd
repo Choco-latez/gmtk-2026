@@ -19,9 +19,9 @@ func determine_anim_gravity():
 	if player.diving:
 		%AnimationPlayer.play("charge")
 		return
-	elif Input.is_action_just_pressed("INTERACT"):
-		%AnimationPlayer.play("interact")
-		return
+	#elif Input.is_action_just_pressed("INTERACT"):
+		#%AnimationPlayer.play("interact")
+		#return
 	if player.velocity == Vector2.ZERO:
 		if %AnimationPlayer.current_animation != "idle":
 			%AnimationPlayer.play("idle")
@@ -40,9 +40,9 @@ func determine_anim_zgravity():
 	if player.diving:
 		%AnimationPlayer.play("charge")
 		return
-	elif Input.is_action_just_pressed("INTERACT"):
-		%AnimationPlayer.play("interact")
-		return
+	#elif Input.is_action_just_pressed("INTERACT"):
+		#%AnimationPlayer.play("interact")
+		#return
 		
 	if player.velocity == Vector2.ZERO:
 		if %AnimationPlayer.current_animation != "idle":

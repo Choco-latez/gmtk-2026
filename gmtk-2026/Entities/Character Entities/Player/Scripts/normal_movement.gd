@@ -33,15 +33,14 @@ func handle_jump():
 		%"Coyote Time".stop()
 		player.can_jump = false
 		player.continue_jump = true
-		player.jump_particles_instantiate()
 	elif Input.is_action_just_pressed("JUMP") and player.additional_jumps_available > 0:
 		%"Jump Timer".start()
 		player.continue_jump = true
 		player.velocity.y = player.JUMP_VELOCITY
 		player.additional_jumps_available -=1
 		player.jump_particles_instantiate()
-	elif Input.is_action_pressed("JUMP") and player.continue_jump:
-		player.velocity.y += player.JUMP_VELOCITY/18
+	elif Input.is_action_pressed("JUMP") and player.continue_jump and not player.is_on_floor():
+		player.velocity.y += player.JUMP_VELOCITY* 3.5 * get_physics_process_delta_time()
 	if Input.is_action_just_released("JUMP"):
 		%"Jump Timer".stop()
 		player.continue_jump = false
@@ -54,11 +53,14 @@ func calculate_movement():
 		var dive_modifier = 1
 		if player.diving:
 			dive_modifier = 0.2
-		player.velocity.x = direction * player.SPEED * dive_modifier
+		player.velocity.x = direction * player.SPEED * dive_modifier 
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.SPEED)
 
 func handle_dive():
+	if not player.dive_unlocked:
+		return
+	
 	if Input.is_action_just_pressed("DIVE") and player.dive_available and not player.is_on_floor():
 		%"Dive Timer".wait_time = 0.5
 		%"Dive Timer".start()
@@ -72,7 +74,7 @@ func handle_dive():
 		%"Dive Particles".emitting = true
 		%"Dive Timer".wait_time = 0.05
 		%"Dive Timer".start()
-		player.velocity.y = -player.JUMP_VELOCITY *3
+		player.velocity.y = -player.JUMP_VELOCITY *3 
 		%Sprite2D.visible = false
 		
 		await %"Dive Timer".timeout
