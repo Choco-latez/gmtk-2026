@@ -57,7 +57,7 @@ func move_door(open):
 		
 	tween = get_tree().create_tween()
 	tween.set_trans(tween_type)
-	if open:
+	if not open:
 		tween.tween_property(self,"openness", 1,tween_time)
 	else: 
 		tween.tween_property(self,"openness", 0,tween_time)
