@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://drb2sy0olvb6p"]
+
+[ext_resource type="Texture2D" uid="uid://bskwqjm7gxqlk" path="res://Entities/Sprites/Buttons.png" id="1_80fil"]
+[ext_resource type="Script" uid="uid://c866s6c1k25i6" path="res://Entities/Scripts/switch_node.gd" id="1_s8aun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfxu0"]
+size = Vector2(8, 7)
+
+[node name="SwitchNode" type="Node2D" unique_id=1046025813]
+script = ExtResource("1_s8aun")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1698798365]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=360058842]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lfxu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=464108260]
+texture = ExtResource("1_80fil")
+hframes = 2
+vframes = 4
+frame = 6
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

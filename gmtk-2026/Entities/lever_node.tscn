@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cnh4lfg38bgb1"]
+
+[ext_resource type="Script" uid="uid://dxvilnbdvmn2c" path="res://Entities/Scripts/lever_node.gd" id="1_c36n0"]
+[ext_resource type="Texture2D" uid="uid://bskwqjm7gxqlk" path="res://Entities/Sprites/Buttons.png" id="2_7wkbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56frv"]
+size = Vector2(8, 8)
+
+[node name="LeverNode" type="Node2D" unique_id=2052310420]
+script = ExtResource("1_c36n0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=745091716]
+texture = ExtResource("2_7wkbp")
+hframes = 2
+vframes = 4
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=212093788]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=962701519]
+shape = SubResource("RectangleShape2D_56frv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

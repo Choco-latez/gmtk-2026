@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://vjdcb7y2mlkl"]
+
+[ext_resource type="Script" uid="uid://c20fhsh87m3ym" path="res://Entities/Scripts/progress_node.gd" id="1_46uwv"]
+[ext_resource type="Texture2D" uid="uid://bskwqjm7gxqlk" path="res://Entities/Sprites/Buttons.png" id="2_e8g6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3tcm"]
+size = Vector2(9, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjb8m"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="ProgressNode" type="Node2D" unique_id=1792870276]
+script = ExtResource("1_46uwv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1145759425]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=168774484]
+shape = SubResource("RectangleShape2D_w3tcm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=841663608]
+texture = ExtResource("2_e8g6c")
+hframes = 2
+vframes = 4
+frame = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=74368725]
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 1.0
+theme_override_styles/background = SubResource("StyleBoxFlat_lfxu0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hjb8m")
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1411119923]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

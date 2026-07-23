@@ -3,14 +3,8 @@
 [ext_resource type="Script" uid="uid://cx788hkclbi8c" path="res://Entities/Scripts/button_node.gd" id="1_d0yfy"]
 [ext_resource type="Texture2D" uid="uid://bskwqjm7gxqlk" path="res://Entities/Sprites/Buttons.png" id="2_r6xgh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6c0r"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odlsx"]
-bg_color = Color(1, 1, 1, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfxu0"]
-size = Vector2(12, 7)
+size = Vector2(8, 5)
 
 [node name="ButtonNode" type="Node2D" unique_id=351438692]
 script = ExtResource("1_d0yfy")
@@ -20,26 +14,12 @@ texture = ExtResource("2_r6xgh")
 hframes = 2
 vframes = 4
 
-[node name="Timer" type="Timer" parent="." unique_id=1050041736]
-wait_time = 0.5
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=364898057]
-visible = false
-offset_left = -3.0
-offset_top = -1.0
-offset_right = 3.0
-offset_bottom = 1.0
-theme_override_styles/background = SubResource("StyleBoxFlat_r6c0r")
-theme_override_styles/fill = SubResource("StyleBoxFlat_odlsx")
-value = 12.0
-show_percentage = false
-
 [node name="Area2D" type="Area2D" parent="." unique_id=535263705]
-collision_mask = 2
+collision_layer = 8
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1869265641]
-position = Vector2(0, 0.5)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_lfxu0")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
