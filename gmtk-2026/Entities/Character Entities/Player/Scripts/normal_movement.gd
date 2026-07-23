@@ -33,11 +33,13 @@ func handle_jump():
 		%"Coyote Time".stop()
 		player.can_jump = false
 		player.continue_jump = true
+		player.jump_particles_instantiate()
 	elif Input.is_action_just_pressed("JUMP") and player.additional_jumps_available > 0:
 		%"Jump Timer".start()
 		player.continue_jump = true
 		player.velocity.y = player.JUMP_VELOCITY
 		player.additional_jumps_available -=1
+		player.jump_particles_instantiate()
 	elif Input.is_action_pressed("JUMP") and player.continue_jump:
 		player.velocity.y += player.JUMP_VELOCITY/18
 	if Input.is_action_just_released("JUMP"):
@@ -60,16 +62,26 @@ func handle_dive():
 	if Input.is_action_just_pressed("DIVE") and player.dive_available and not player.is_on_floor():
 		%"Dive Timer".wait_time = 0.5
 		%"Dive Timer".start()
+		%"Dive Charge Particles".emitting = true
 		player.dive_available = false
 		player.diving = true
 		player.velocity.y = 0
+		
 		await %"Dive Timer".timeout
+		%"Dive Charge Particles".emitting = false
+		%"Dive Particles".emitting = true
 		%"Dive Timer".wait_time = 0.05
 		%"Dive Timer".start()
-		player.velocity.y = -player.JUMP_VELOCITY *4
+		player.velocity.y = -player.JUMP_VELOCITY *3
+		
 		await %"Dive Timer".timeout
 		player.diving = false
 		player.dive_available = true
+		%"Dive Timer".wait_time = 0.1
+		%"Dive Timer".start()
+		
+		await %"Dive Timer".timeout
+		%"Dive Particles".emitting = false
 		
 
 func _on_coyote_time_timeout() -> void:

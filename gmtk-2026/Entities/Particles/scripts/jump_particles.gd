@@ -1,0 +1,10 @@
+extends GPUParticles2D
+
+var normal:bool
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	emitting = true
+
+
+func _on_finished() -> void:
+	queue_free()

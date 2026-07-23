@@ -1,15 +1,121 @@
 [gd_scene format=3 uid="uid://b148ktydjt3f7"]
 
 [ext_resource type="Script" uid="uid://7upgmkjoob0o" path="res://Entities/Character Entities/Player/Scripts/Player.gd" id="1_y01m2"]
+[ext_resource type="PackedScene" uid="uid://wr2u47ebr53k" path="res://Entities/Particles/jump_particles.tscn" id="2_jpkce"]
 [ext_resource type="Texture2D" uid="uid://dpwrcb6mp1c8g" path="res://Entities/Character Entities/Player/Sprites/temp player.png" id="2_uuxyx"]
 [ext_resource type="Script" uid="uid://cboc2f7s0gqkx" path="res://Entities/Character Entities/Player/Scripts/normal_movement.gd" id="2_yglxg"]
+[ext_resource type="Texture2D" uid="uid://ba7jos2bqecva" path="res://Entities/Particles/sprites/feather.png" id="2_ym8wo"]
 [ext_resource type="Script" uid="uid://cnfebcps46y8v" path="res://Entities/Character Entities/Player/Scripts/zero_gravity_movement.gd" id="3_u82tg"]
+
+[sub_resource type="Curve" id="Curve_ucim2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.66891897, 0.94382024), -0.41573027, -0.41573027, 0, 0, Vector2(0.98648655, 0), -3.1699436, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_r6c0r"]
+curve = SubResource("Curve_ucim2")
+
+[sub_resource type="Curve" id="Curve_u82tg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9932432, 0.64044946), -0.6307635, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hjb8m"]
+curve = SubResource("Curve_u82tg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lfxu0"]
+particle_flag_disable_z = true
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+radial_velocity_min = -1.0000223
+radial_velocity_max = 0.99997765
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_hjb8m")
+color = Color(0.50980395, 0.50980395, 0.50980395, 0.78431374)
+alpha_curve = SubResource("CurveTexture_r6c0r")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_guki6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.98798084, 0.011904836), -3.5657141, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q0jor"]
+curve = SubResource("Curve_guki6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ljxh"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 3, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.49997765
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+alpha_curve = SubResource("CurveTexture_q0jor")
+
+[sub_resource type="Curve" id="Curve_ym8wo"]
+_data = [Vector2(0.007211536, 0), 0.0, 3.2500005, 0, 0, Vector2(1, 1), 0.24597894, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n65on"]
+curve = SubResource("Curve_ym8wo")
+
+[sub_resource type="Curve" id="Curve_u1n50"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.20833337), -1.9047623, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y21qx"]
+curve = SubResource("Curve_u1n50")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r6c0r"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 12.0
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+orbit_velocity_min = -0.09999991
+orbit_velocity_max = 0.1000001
+radial_velocity_min = -20.000021
+radial_velocity_max = -10.000022
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_y21qx")
+alpha_curve = SubResource("CurveTexture_n65on")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u82tg"]
 size = Vector2(6, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1420188091]
 script = ExtResource("1_y01m2")
+jump_particle_instance = ExtResource("2_jpkce")
+
+[node name="Particles" type="Node2D" parent="." unique_id=494589182]
+position = Vector2(0, 6)
+
+[node name="MoveParticles" type="GPUParticles2D" parent="Particles" unique_id=112172195]
+unique_name_in_owner = true
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_lfxu0")
+
+[node name="Dive Particles" type="GPUParticles2D" parent="Particles" unique_id=1240603240]
+unique_name_in_owner = true
+emitting = false
+amount = 92
+texture = ExtResource("2_ym8wo")
+lifetime = 10.0
+speed_scale = 10.0
+process_material = SubResource("ParticleProcessMaterial_0ljxh")
+
+[node name="Dive Charge Particles" type="GPUParticles2D" parent="Particles" unique_id=1601872425]
+unique_name_in_owner = true
+position = Vector2(0, -6)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_r6c0r")
 
 [node name="Normal Movement" type="Node2D" parent="." unique_id=1987921560 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
@@ -26,6 +132,7 @@ player = NodePath("..")
 texture = ExtResource("2_uuxyx")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1772318761]
+visible = false
 shape = SubResource("RectangleShape2D_u82tg")
 
 [node name="Coyote Time" type="Timer" parent="." unique_id=767765018]
@@ -44,11 +151,13 @@ one_shot = true
 
 [node name="RaycastR" type="RayCast2D" parent="." unique_id=424401752]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, 5)
 target_position = Vector2(4, 0)
 
 [node name="RaycastL" type="RayCast2D" parent="." unique_id=297158571]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, 5)
 target_position = Vector2(-4, 0)
 

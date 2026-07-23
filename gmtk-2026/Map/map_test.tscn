@@ -1053,6 +1053,7 @@ position = Vector2(2, 41)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
 zoom = Vector2(5, 5)
+position_smoothing_speed = 0.0
 
 [node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
 position = Vector2(45, 52)

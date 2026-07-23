@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+@export var jump_particle_instance : PackedScene
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -100.0
@@ -32,3 +33,7 @@ func apply_gravity(true_or_false:bool):
 	else:
 		%"Normal Movement".process_mode = Node.PROCESS_MODE_DISABLED
 		%"Zero Gravity Movement".process_mode = Node.PROCESS_MODE_INHERIT
+
+func jump_particles_instantiate():
+	var jp = jump_particle_instance.instantiate()
+	$Particles.add_child(jp)
