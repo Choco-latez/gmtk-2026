@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://cr4imgfohw23a" path="res://Sprites/tileSet.tres" id="1_dwmtj"]
 [ext_resource type="Script" uid="uid://diwfi7436hw1t" path="res://Map/Map.gd" id="1_hpyjb"]
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/Player.tscn" id="2_wvdts"]
+[ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_uxbqh"]
+[ext_resource type="PackedScene" uid="uid://wrigd1uj0bjb" path="res://Map/spike_tilemap.tscn" id="3_0j4rv"]
 [ext_resource type="PackedScene" uid="uid://dds2p5sjha4ll" path="res://Entities/Character Entities/Spikes/Spikes.tscn" id="3_dwmtj"]
 [ext_resource type="PackedScene" uid="uid://c8idgk45t7shn" path="res://Entities/extra_jump.tscn" id="5_s04jt"]
 [ext_resource type="PackedScene" uid="uid://cesnrjpymgyr4" path="res://UI/sign_popup.tscn" id="6_fsokj"]
@@ -24,6 +26,9 @@ tile_set = ExtResource("1_dwmtj")
 position = Vector2(2, 41)
 base_additional_jumps = 5
 dive_unlocked = true
+
+[node name="Spike Tilemap" parent="Tilemaps" unique_id=1612097963 instance=ExtResource("3_0j4rv")]
+tile_map_data = PackedByteArray("AAD2//j/AAAAAAIAAAD3//j/AAABAAIAAAD4//j/AAABAAIAAAD5//j/AAABAAIAAAD6//j/AAABAAIAAAD7//j/AAABAAIAAAD8//j/AAABAAIAAAD9//j/AAACAAIAAAD3//f/AAABAAAAAAD4//f/AAABAAAAAAD5//f/AAABAAAAAAD6//f/AAABAAAAAAD7//f/AAABAAAAAAD8//f/AAABAAAAAAABAPj/AAAAAAIAAAACAPj/AAABAAIAAAACAPf/AAABAAAAAAADAPj/AAABAAIAAAADAPf/AAABAAAAAAAEAPj/AAABAAIAAAAEAPf/AAABAAAAAAAFAPj/AAABAAIAAAAFAPf/AAABAAAAAAAGAPj/AAABAAIAAAAGAPf/AAABAAAAAAAHAPj/AAABAAIAAAAHAPf/AAABAAAAAAAIAPj/AAABAAIAAAAIAPf/AAABAAAAAAAJAPj/AAACAAIAAAA=")
 
 [node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
 position = Vector2(45, 52)
