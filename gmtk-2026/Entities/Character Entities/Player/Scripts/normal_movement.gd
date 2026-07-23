@@ -39,6 +39,7 @@ func handle_jump():
 		player.velocity.y = player.JUMP_VELOCITY
 		player.additional_jumps_available -=1
 		player.jump_particles_instantiate()
+		player.ability_used.emit()
 	elif Input.is_action_pressed("JUMP") and player.continue_jump and not player.is_on_floor():
 		player.velocity.y += player.JUMP_VELOCITY* 3.5 * get_physics_process_delta_time()
 	if Input.is_action_just_released("JUMP"):
@@ -70,6 +71,7 @@ func handle_dive():
 		player.velocity.y = 0
 		
 		await %"Dive Timer".timeout
+		player.ability_used.emit()
 		%"Dive Charge Particles".emitting = false
 		%"Dive Particles".emitting = true
 		%"Dive Timer".wait_time = 0.05

@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal died
+signal ability_used
 
 @export var jump_particle_instance : PackedScene
 
@@ -73,6 +74,8 @@ func die() -> void:
 
 func _ready() -> void:
 	apply_gravity(true)
+	SignalBus.connect("change_gravity",apply_gravity)
+	connect("ability_used",SignalBus.use_ability)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug1"):
