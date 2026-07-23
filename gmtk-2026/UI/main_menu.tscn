@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://beqfqcahod57a" path="res://UI/Scripts/main_menu.gd" id="1_p8ccj"]
 [ext_resource type="Texture2D" uid="uid://c1udkwc5mwsby" path="res://Sprites/swan.png" id="2_4cwpn"]
 [ext_resource type="Script" uid="uid://cihex5ey77qih" path="res://UI/Scripts/remapper.gd" id="2_tk8dj"]
+[ext_resource type="FontFile" uid="uid://cg2ujug2km488" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="3_8ctay"]
 [ext_resource type="Script" uid="uid://dsm0g2viev2cp" path="res://UI/Scripts/audioslider.gd" id="3_d8nwk"]
+[ext_resource type="FontFile" uid="uid://diosuryr60tby" path="res://Fonts/GeistPixel-Regular-VariableFont_ELSH.ttf" id="4_ev3b6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
 bg_color = Color(0, 0, 0, 1)
@@ -21,6 +23,36 @@ initial_velocity_max = 878.43
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ctay"]
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul7nq"]
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="Theme" id="Theme_d4kh5"]
+Button/colors/font_pressed_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+Button/fonts/font = ExtResource("3_8ctay")
+Button/styles/hover = SubResource("StyleBoxFlat_8ctay")
+Button/styles/normal = SubResource("StyleBoxFlat_ul7nq")
+Button/styles/pressed = SubResource("StyleBoxFlat_ev3b6")
+Label/fonts/font = ExtResource("3_8ctay")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lfxu0"]
 font_size = 128
@@ -103,6 +135,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_d4kh5")
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -115,7 +148,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "GAME NAME"
+theme_override_fonts/font = ExtResource("4_ev3b6")
+text = "SWANDER SPACE"
 label_settings = SubResource("LabelSettings_lfxu0")
 horizontal_alignment = 1
 
@@ -402,7 +436,7 @@ size_flags_vertical = 6
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Level select"
+text = "Level Select"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=167745988]
 unique_name_in_owner = true
