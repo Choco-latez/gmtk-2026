@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://diqmtjcu1wfvs" path="res://Sprites/tileset.png" id="1_5yvnv"]
 [ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_gkvdi"]
+[ext_resource type="Texture2D" uid="uid://chhns8hyd4kie" path="res://Sprites/decor.png" id="2_2653w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awkel"]
 texture = ExtResource("1_5yvnv")
@@ -422,6 +423,17 @@ texture_region_size = Vector2i(8, 8)
 3:3/0 = 0
 3:3/0/terrain_set = 0
 3:3/0/terrain = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwf7u"]
+texture = ExtResource("2_2653w")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/size_in_atlas = Vector2i(2, 1)
+5:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvdts"]
 texture = ExtResource("1_gkvdi")
@@ -1462,3 +1474,4 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_wvdts")
 sources/0 = SubResource("TileSetAtlasSource_awkel")
+sources/1 = SubResource("TileSetAtlasSource_bwf7u")
