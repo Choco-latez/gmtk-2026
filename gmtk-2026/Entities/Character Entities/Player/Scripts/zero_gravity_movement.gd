@@ -3,6 +3,9 @@ extends Node2D
 @export var player : Player 
 enum standing_directions {UPDOWN, LEFTRIGHT, BOTH, NONE}
 var standing_dir : standing_directions = standing_directions.LEFTRIGHT
+@onready var dash_charge: AudioStreamPlayer2D = %DashCharge
+@onready var jump_audio: AudioStreamPlayer2D = %JumpAudio
+@onready var dive: AudioStreamPlayer2D = %Dive
 
 var jumping_dir:Vector2
 
@@ -61,6 +64,7 @@ func handle_dive():
 		player.additional_jumps_available-=1
 		%"Dive Timer".wait_time = 0.5
 		%"Dive Timer".start()
+		dash_charge.play()
 		player.dive_available = false
 		player.diving = true
 		player.velocity = Vector2.ZERO
@@ -71,6 +75,8 @@ func handle_dive():
 		
 		%"Dive Timer".wait_time = 0.05
 		%"Dive Timer".start()
+		dash_charge.stop()
+		dive.play()
 		%"Dive Charge Particles".emitting = false
 		%"Dive Particles".emitting = true
 		%Sprite2D.visible = false
@@ -104,6 +110,7 @@ func handle_jump():
 		
 		if Input.is_action_just_pressed("JUMP") and player.can_jump:
 			%"Jump Timer".start()
+			jump_audio.play()
 			%"Coyote Time".stop()
 			player.can_jump = false
 			if input == Vector2.ZERO:
@@ -116,6 +123,7 @@ func handle_jump():
 		if Input.is_action_just_pressed("JUMP") and player.additional_jumps_available > 0:
 			print("123")
 			%"Jump Timer".start()
+			jump_audio.play()
 			var input = Input.get_vector("LEFT","RIGHT","UP","DOWN")
 			if input == Vector2.ZERO:
 				print("asd")
