@@ -12,11 +12,14 @@ func _ready() -> void:
 	SignalBus.connect("used_ability",skill_used)
 	
 	$Timer.wait_time = countdown_time
-	$Timer.start()
+	
 	%ProgressBar.max_value = countdown_time
 	%ProgressBar.value = countdown_time
 	
 
+func start():
+	%ProgressBar.visible = true
+	$Timer.start()
 
 func skill_used():
 	if not pause_timer:

@@ -25,6 +25,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer" unique_id=1946559402]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 show_percentage = false

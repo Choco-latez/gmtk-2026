@@ -31,7 +31,13 @@ scale = Vector2(3, 3)
 polygon = PackedVector2Array(1, 1, 1, -1, -1, -1, -1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D" unique_id=1156532691]
-polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+polygon = PackedVector2Array(-3, -3, 3, -3, 3, 3, -3, 3)
+
+[node name="Line2D" type="Line2D" parent="AnimatableBody2D" unique_id=1600302168]
+points = PackedVector2Array(2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, 2.5)
+closed = true
+width = 1.0
+default_color = Color(0, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=1787336620]
 

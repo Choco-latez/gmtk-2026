@@ -16,7 +16,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_inside = false
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("USE") and not active:
+	if Input.is_action_just_pressed("USE") and not active and player_inside:
 		turn_on()
 	if active:
 		$ProgressBar.value = $Timer.time_left

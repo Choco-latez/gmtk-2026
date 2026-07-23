@@ -1,6 +1,8 @@
 class_name Map
 extends Node2D
 
+@export var autostart_countdown : bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +15,8 @@ func _ready() -> void:
 		var tween = get_tree().create_tween()
 		tween.set_trans(Tween.TRANS_SINE)
 		tween.tween_property($CanvasLayer/Panel, "modulate", Color8(0,0,0,0), 0.5 )
+	if autostart_countdown:
+		%Countdown.start()
 	
 func die():
 	if Savedata.fastdeath:
