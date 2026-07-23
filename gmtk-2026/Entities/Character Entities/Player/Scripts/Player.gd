@@ -29,12 +29,12 @@ func swan_time():
 	if not swan_time_unlocked:
 		return
 	
-	if swan_time_available and Input.is_action_pressed("INTERACT"):
+	if swan_time_available and Input.is_action_pressed("USE"):
 		Engine.time_scale = 0.4
 		AudioServer.playback_speed_scale = 0.4
 		swan_time_available = false
 		%"Swan Time".start()
-	if Input.is_action_just_released("INTERACT"):
+	if Input.is_action_just_released("USE"):
 		Engine.time_scale = 1
 		AudioServer.playback_speed_scale = 1
 

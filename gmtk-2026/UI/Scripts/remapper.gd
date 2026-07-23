@@ -59,7 +59,7 @@ func _on_dive_button_down() -> void:
 
 
 func _on_interact_button_down() -> void:
-	button_clicked($VBoxContainer2/INTERACT)
+	button_clicked($VBoxContainer2/USE)
 
 
 func _on_menu_button_down() -> void:

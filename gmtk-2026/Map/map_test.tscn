@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/Player.tscn" id="2_wvdts"]
 [ext_resource type="PackedScene" uid="uid://dds2p5sjha4ll" path="res://Entities/Character Entities/Spikes/Spikes.tscn" id="3_dwmtj"]
 [ext_resource type="PackedScene" uid="uid://c8idgk45t7shn" path="res://Entities/extra_jump.tscn" id="5_s04jt"]
+[ext_resource type="PackedScene" uid="uid://cesnrjpymgyr4" path="res://UI/sign_popup.tscn" id="6_fsokj"]
+[ext_resource type="PackedScene" uid="uid://c4c3u1ieaa1cr" path="res://Entities/sign_entity.tscn" id="7_0j4rv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
 bg_color = Color(1, 1, 1, 1)
@@ -25,6 +27,7 @@ dive_unlocked = true
 
 [node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
 position = Vector2(45, 52)
+collision_mask = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=510629068]
 visible = false
@@ -42,3 +45,20 @@ position = Vector2(-23, 12)
 
 [node name="Extra Jump2" parent="." unique_id=253850716 instance=ExtResource("5_s04jt")]
 position = Vector2(30, 8)
+
+[node name="Sign Entity" parent="." unique_id=930421180 instance=ExtResource("7_0j4rv")]
+position = Vector2(-63, 40)
+sign_title = "Hello"
+Signtext = "Hi"
+
+[node name="Sign Popup" parent="." unique_id=172546286 node_paths=PackedStringArray("signs") instance=ExtResource("6_fsokj")]
+signs = [NodePath("../Sign Entity")]
+
+[node name="CharacterBody2D" parent="." unique_id=1420188091 instance=ExtResource("2_wvdts")]
+position = Vector2(2, 41)
+base_additional_jumps = 5
+dive_unlocked = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
+zoom = Vector2(5, 5)
+position_smoothing_speed = 0.0

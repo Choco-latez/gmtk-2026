@@ -1,4 +1,4 @@
 extends Node
 
 
-var fastdeath : bool = false
+var fastdeath : bool = true

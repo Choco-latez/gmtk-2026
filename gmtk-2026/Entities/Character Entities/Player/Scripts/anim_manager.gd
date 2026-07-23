@@ -19,7 +19,7 @@ func determine_anim_gravity():
 	if player.diving:
 		%AnimationPlayer.play("charge")
 		return
-	#elif Input.is_action_just_pressed("INTERACT"):
+	#elif Input.is_action_just_pressed("USE"):
 		#%AnimationPlayer.play("interact")
 		#return
 	if player.velocity == Vector2.ZERO:
@@ -40,7 +40,7 @@ func determine_anim_zgravity():
 	if player.diving:
 		%AnimationPlayer.play("charge")
 		return
-	#elif Input.is_action_just_pressed("INTERACT"):
+	#elif Input.is_action_just_pressed("USE"):
 		#%AnimationPlayer.play("interact")
 		#return
 		

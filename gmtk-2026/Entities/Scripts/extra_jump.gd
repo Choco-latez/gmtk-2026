@@ -5,6 +5,9 @@ extends Node2D
 func _ready() -> void:
 	$Timer.wait_time = wait_time
 	
+	$AnimationPlayer.advance(randf_range(0,2))
+	$AnimationPlayer2.advance(randf_range(0,3))
+	
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("asd")
@@ -12,10 +15,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	$Timer.start()
 	$GPUParticles2D.emitting = false
 	$Sprite2D.visible = false
-	$Area2D.monitoring = false
+	$Area2D.set_deferred("monitoring",false)
 
 
 func _on_timer_timeout() -> void:
 	$GPUParticles2D.emitting = true
 	$Sprite2D.visible = true
-	$Area2D.monitoring = true
+	$Area2D.set_deferred("monitoring",true)
