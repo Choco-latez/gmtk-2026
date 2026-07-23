@@ -4,8 +4,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CharacterBody2D.died.connect(die)
-	$UI.visible = true
+	$Player.died.connect(die)
+	if get_node_or_null("UI") != null:
+		$UI.visible = true
 	
 	if not Savedata.fastdeath:
 		$CanvasLayer.visible = true

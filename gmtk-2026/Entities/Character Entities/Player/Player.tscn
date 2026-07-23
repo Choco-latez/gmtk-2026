@@ -515,9 +515,6 @@ autoplay = &"idle"
 script = ExtResource("7_u1n50")
 player = NodePath("..")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1968756303]
-zoom = Vector2(4.5, 4.5)
-
 [node name="SFX" type="Node2D" parent="." unique_id=163655674]
 
 [node name="DashCharge" type="AudioStreamPlayer2D" parent="SFX" unique_id=1857312195]

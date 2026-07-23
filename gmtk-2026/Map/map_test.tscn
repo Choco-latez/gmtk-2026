@@ -30,6 +30,9 @@ position = Vector2(2, 41)
 base_additional_jumps = 5
 dive_unlocked = true
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=265600940]
+zoom = Vector2(5, 5)
+
 [node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
 position = Vector2(45, 52)
 
