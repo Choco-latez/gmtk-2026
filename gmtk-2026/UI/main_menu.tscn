@@ -1,11 +1,73 @@
 [gd_scene format=3 uid="uid://l0tik4mhi750"]
 
+[ext_resource type="FontFile" uid="uid://cg2ujug2km488" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_f40uw"]
 [ext_resource type="Script" uid="uid://beqfqcahod57a" path="res://UI/Scripts/main_menu.gd" id="1_p8ccj"]
 [ext_resource type="Script" uid="uid://cihex5ey77qih" path="res://UI/Scripts/remapper.gd" id="2_tk8dj"]
+[ext_resource type="FontFile" uid="uid://diosuryr60tby" path="res://Fonts/GeistPixel-Regular-VariableFont_ELSH.ttf" id="3_8ctay"]
 [ext_resource type="Script" uid="uid://dsm0g2viev2cp" path="res://UI/Scripts/audioslider.gd" id="3_d8nwk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ctay"]
+content_margin_top = 5.0
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0a0m"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 5.0
+content_margin_bottom = 2.0
+bg_color = Color(0.1200512, 0.12005129, 0.12005121, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="DPITexture" id="DPITexture_tcix6"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
+content_margin_top = 5.0
+bg_color = Color(0.1200512, 0.12005129, 0.12005121, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f40uw"]
+content_margin_top = 5.0
+bg_color = Color(0.07123137, 0.0712314, 0.07123133, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_fsokj"]
+default_font = ExtResource("1_f40uw")
+Button/colors/font_hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+Button/colors/font_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_8ctay")
+Button/styles/normal = SubResource("StyleBoxFlat_k0a0m")
+CheckButton/colors/font_hover_pressed_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+CheckButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_8ctay")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_k0a0m")
+HSlider/icons/grabber = SubResource("DPITexture_tcix6")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ev3b6")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ev3b6")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_f40uw")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lfxu0"]
 font_size = 128
+
+[sub_resource type="Theme" id="Theme_0j4rv"]
 
 [sub_resource type="DPITexture" id="DPITexture_d8nwk"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
@@ -57,6 +119,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_fsokj")
 script = ExtResource("1_p8ccj")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=864612259]
@@ -78,13 +141,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "GAME NAME"
+theme_override_fonts/font = ExtResource("3_8ctay")
+text = "SWANDER SPACE"
 label_settings = SubResource("LabelSettings_lfxu0")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1192339331]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_0j4rv")
 alignment = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=713130467]
