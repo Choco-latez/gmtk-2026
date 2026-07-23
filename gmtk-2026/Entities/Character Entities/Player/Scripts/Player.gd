@@ -89,3 +89,13 @@ func _on_swan_time_timeout() -> void:
 
 func _on_swan_time_recharge_timeout() -> void:
 	swan_time_available = false
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("asdasdasdasdasda")
+	die()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("asdasdasdasdasda")
+	die()

@@ -116,6 +116,9 @@ scale_min = 0.79999995
 scale_curve = SubResource("CurveTexture_g2mn5")
 alpha_curve = SubResource("CurveTexture_ucim2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfxu0"]
+size = Vector2(6, 14)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u82tg"]
 size = Vector2(6, 14)
 
@@ -297,8 +300,14 @@ texture = ExtResource("6_jpkce")
 hframes = 4
 vframes = 4
 
+[node name="Area2D" type="Area2D" parent="." unique_id=227272008]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=40225721]
+shape = SubResource("RectangleShape2D_lfxu0")
+
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1772318761]
-visible = false
 shape = SubResource("RectangleShape2D_u82tg")
 
 [node name="Death Anim Timer" type="Timer" parent="." unique_id=1965335127]
@@ -347,6 +356,8 @@ autoplay = &"idle"
 script = ExtResource("7_u1n50")
 player = NodePath("..")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Coyote Time" to="." method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Normal Movement" method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Zero Gravity Movement" method="_on_coyote_time_timeout"]
