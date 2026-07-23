@@ -62,12 +62,14 @@ func handle_dive():
 		player.velocity = Vector2.ZERO
 		%"Dive Charge Particles".emitting = true
 		
+		
 		await %"Dive Timer".timeout
+		
 		%"Dive Timer".wait_time = 0.05
 		%"Dive Timer".start()
 		%"Dive Charge Particles".emitting = false
 		%"Dive Particles".emitting = true
-		
+		%Sprite2D.visible = false
 		var input = Input.get_vector("LEFT","RIGHT","UP","DOWN")
 		print(input)
 		if input!= Vector2.ZERO:
@@ -81,7 +83,15 @@ func handle_dive():
 		%"Dive Timer".wait_time = 0.1
 		%"Dive Timer".start()
 		
+		if Input.is_action_pressed("JUMP") and player.additional_jumps_available > 0:
+			%"Jump Timer".start()
+			player.continue_jump = true
+			player.velocity.y = player.JUMP_VELOCITY
+			player.additional_jumps_available -=1
+			player.jump_particles_instantiate()
+		
 		await %"Dive Timer".timeout
+		%Sprite2D.visible = true
 		%"Dive Particles".emitting = false
 	
 func handle_jump():
