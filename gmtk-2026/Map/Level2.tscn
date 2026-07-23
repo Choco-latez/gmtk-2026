@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://diwfi7436hw1t" path="res://Map/Map.gd" id="1_51mmi"]
 [ext_resource type="TileSet" uid="uid://cr4imgfohw23a" path="res://Sprites/tileSet.tres" id="2_dy6m5"]
+[ext_resource type="PackedScene" uid="uid://c0lemor0dl1gb" path="res://Entities/door_entity.tscn" id="4_u83oa"]
+[ext_resource type="PackedScene" uid="uid://drb2sy0olvb6p" path="res://Entities/switch_node.tscn" id="5_7tgx4"]
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/Player.tscn" id="7_khofn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcput"]
@@ -36,3 +38,11 @@ offset_top = -9.0
 offset_right = 1292.0
 offset_bottom = 742.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lcput")
+
+[node name="DoorEntity" parent="." unique_id=1421958615 node_paths=PackedStringArray("button") instance=ExtResource("4_u83oa")]
+position = Vector2(110, 166)
+button = NodePath("../SwitchNode")
+
+[node name="SwitchNode" parent="." unique_id=1046025813 instance=ExtResource("5_7tgx4")]
+position = Vector2(63, 178)
+button_type = 3
