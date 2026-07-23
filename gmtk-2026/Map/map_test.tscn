@@ -9,12 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://cesnrjpymgyr4" path="res://UI/sign_popup.tscn" id="6_fsokj"]
 [ext_resource type="PackedScene" uid="uid://c4c3u1ieaa1cr" path="res://Entities/sign_entity.tscn" id="7_0j4rv"]
 [ext_resource type="PackedScene" uid="uid://n5k1cvfb7bpu" path="res://Map/exit_door.tscn" id="9_70vnw"]
+[ext_resource type="Script" uid="uid://ban4q3g8ejr2f" path="res://Map/map_test.gd" id="1_dwmtj"]
+[ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_uxbqh"]
+[ext_resource type="PackedScene" uid="uid://cu5tca6vldp8p" path="res://Map/rigid_body_2d.tscn" id="4_hpyjb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
 bg_color = Color(1, 1, 1, 1)
 
 [node name="Map Test" type="Node2D" unique_id=1108890214]
-script = ExtResource("1_hpyjb")
+
+
+script = ExtResource("1_dwmtj")
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1144737448]
 
@@ -32,6 +37,7 @@ dive_unlocked = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=265600940]
 zoom = Vector2(5, 5)
+
 
 [node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
 position = Vector2(45, 52)
@@ -63,3 +69,7 @@ Signtext = "Hi"
 
 [node name="Sign Popup" parent="." unique_id=172546286 node_paths=PackedStringArray("signs") instance=ExtResource("6_fsokj")]
 signs = [NodePath("../Sign Entity")]
+
+[node name="RigidBody2D" parent="." unique_id=1630588016 instance=ExtResource("4_hpyjb")]
+position = Vector2(47, -2)
+can_sleep = false
