@@ -1057,7 +1057,6 @@ tile_set = SubResource("TileSet_lfxu0")
 position = Vector2(2, 41)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
-visible = false
 zoom = Vector2(5, 5)
 position_smoothing_speed = 0.0
 
@@ -1065,6 +1064,7 @@ position_smoothing_speed = 0.0
 position = Vector2(45, 52)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=510629068]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1648633020]
 modulate = Color(0, 0, 0, 1)

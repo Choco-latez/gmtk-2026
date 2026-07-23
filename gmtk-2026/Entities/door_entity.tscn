@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c0lemor0dl1gb"]
+
+[ext_resource type="Script" uid="uid://bt3hea0k33oru" path="res://Entities/Scripts/door_entity.gd" id="1_okb3i"]
+
+[node name="DoorEntity" type="Node2D" unique_id=1421958615]
+script = ExtResource("1_okb3i")
+tween_time = 1.0
+tween_type = 1
+door_open = PackedVector2Array(5, 5, 5, -5, -5, -5, -5, 5)
+door_closed = PackedVector2Array(-5, 5, -5, -5, -5, -5, -5, 5)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=939469250]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D" unique_id=2097048277]
+unique_name_in_owner = true
+polygon = PackedVector2Array(5, 5, 5, -5, -5, -5, -5, 5)
+
+[node name="Polygon2D" type="Polygon2D" parent="AnimatableBody2D" unique_id=660362046]
+unique_name_in_owner = true
+polygon = PackedVector2Array(5, 5, 5, -5, -5, -5, -5, 5)
+
+[node name="Line2D" type="Line2D" parent="AnimatableBody2D" unique_id=2061965350]
+unique_name_in_owner = true
+points = PackedVector2Array(4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, -4.5)
+closed = true
+width = 1.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=638848725]
+zoom = Vector2(8, 8)

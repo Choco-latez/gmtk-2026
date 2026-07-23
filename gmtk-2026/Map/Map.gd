@@ -1,3 +1,4 @@
+class_name Map
 extends Node2D
 
 
@@ -6,6 +7,7 @@ func _ready() -> void:
 	$CharacterBody2D.died.connect(die)
 	
 	if not Savedata.fastdeath:
+		$CanvasLayer.visible = true
 		var tween = get_tree().create_tween()
 		tween.set_trans(Tween.TRANS_SINE)
 		tween.tween_property($CanvasLayer/Panel, "modulate", Color8(0,0,0,0), 0.5 )

@@ -37,6 +37,7 @@ func turned_off():
 
 
 func _ready() -> void:
+	super()
 	$AnimatableBody2D/CollisionPolygon2D.polygon = $AnimatableBody2D/Polygon2D.polygon
 	$AnimatableBody2D.position = $"Position 1".position
 	
