@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal died
+signal ability_used
 
 @export var jump_particle_instance : PackedScene
 
@@ -14,8 +15,6 @@ var continue_jump : bool
 var additional_jumps_available : int
 
 @export var dive_unlocked :bool = false
-
-@export var default_gravity := true
 
 var dive_available : bool = true
 var diving : bool = false
@@ -74,7 +73,9 @@ func die() -> void:
 	died.emit()
 
 func _ready() -> void:
-	apply_gravity(default_gravity)
+	apply_gravity(true)
+	SignalBus.connect("change_gravity",apply_gravity)
+	connect("ability_used",SignalBus.use_ability)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug1"):

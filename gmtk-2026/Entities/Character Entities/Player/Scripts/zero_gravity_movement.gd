@@ -72,7 +72,7 @@ func handle_dive():
 		
 		
 		await %"Dive Timer".timeout
-		
+		player.ability_used.emit()
 		%"Dive Timer".wait_time = 0.05
 		%"Dive Timer".start()
 		dash_charge.stop()
@@ -121,7 +121,7 @@ func handle_jump():
 		
 	elif standing_dir == standing_directions.NONE:
 		if Input.is_action_just_pressed("JUMP") and player.additional_jumps_available > 0:
-			print("123")
+			player.ability_used.emit()
 			%"Jump Timer".start()
 			jump_audio.play()
 			var input = Input.get_vector("LEFT","RIGHT","UP","DOWN")

@@ -1,12 +1,11 @@
 class_name Map
 extends Node2D
 
-@onready var player: Player = $Player
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player.died.connect(die)
+	$CharacterBody2D.died.connect(die)
+	$UI.visible = true
 	
 	if not Savedata.fastdeath:
 		$CanvasLayer.visible = true
