@@ -1,6 +1,9 @@
 extends Node2D
 
 @export var player : Player 
+@onready var jump_audio: AudioStreamPlayer2D = %JumpAudio
+@onready var dash_charge: AudioStreamPlayer2D = %DashCharge
+@onready var dive: AudioStreamPlayer2D = %Dive
 
 
 func _physics_process(delta: float) -> void:
@@ -28,12 +31,14 @@ func handle_jump():
 	if player.diving:
 		return
 	if Input.is_action_just_pressed("JUMP") and player.can_jump:
+		jump_audio.play()
 		player.velocity.y = player.JUMP_VELOCITY
 		%"Jump Timer".start()
 		%"Coyote Time".stop()
 		player.can_jump = false
 		player.continue_jump = true
 	elif Input.is_action_just_pressed("JUMP") and player.additional_jumps_available > 0:
+		jump_audio.play()
 		%"Jump Timer".start()
 		player.continue_jump = true
 		player.velocity.y = player.JUMP_VELOCITY
@@ -68,13 +73,16 @@ func handle_dive():
 		player.dive_available = false
 		player.diving = true
 		player.velocity.y = 0
+		dash_charge.play()
 		
 		await %"Dive Timer".timeout
 		%"Dive Charge Particles".emitting = false
 		%"Dive Particles".emitting = true
 		%"Dive Timer".wait_time = 0.05
 		%"Dive Timer".start()
-		player.velocity.y = -player.JUMP_VELOCITY *3 
+		player.velocity.y = -player.JUMP_VELOCITY *3
+		dash_charge.stop()
+		dive.play()
 		%Sprite2D.visible = false
 		
 		await %"Dive Timer".timeout

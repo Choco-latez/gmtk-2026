@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://cnfebcps46y8v" path="res://Entities/Character Entities/Player/Scripts/zero_gravity_movement.gd" id="3_u82tg"]
 [ext_resource type="Texture2D" uid="uid://b806834iswf8i" path="res://Entities/Character Entities/Player/Sprites/char.png" id="6_jpkce"]
 [ext_resource type="Script" uid="uid://cqnucsrlsbaah" path="res://Entities/Character Entities/Player/Scripts/anim_manager.gd" id="7_u1n50"]
+[ext_resource type="AudioStream" uid="uid://b4yl2ej5a630h" path="res://Entities/Character Entities/Player/jump.wav" id="8_fcbtk"]
+[ext_resource type="AudioStream" uid="uid://cs12hqdx337t" path="res://Entities/Character Entities/Player/dash_Charge.wav" id="9_7u5uf"]
+[ext_resource type="AudioStream" uid="uid://vn8tqyuxnsg1" path="res://Entities/Character Entities/Player/dash_go.wav" id="10_lao1n"]
 
 [sub_resource type="Curve" id="Curve_ucim2"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.66891897, 0.94382024), -0.41573027, -0.41573027, 0, 0, Vector2(0.98648655, 0), -3.1699436, 0.0, 0, 0]
@@ -358,6 +361,26 @@ player = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1968756303]
 zoom = Vector2(4.5, 4.5)
+
+[node name="SFX" type="Node2D" parent="." unique_id=163655674]
+
+[node name="DashCharge" type="AudioStreamPlayer2D" parent="SFX" unique_id=1857312195]
+unique_name_in_owner = true
+stream = ExtResource("9_7u5uf")
+max_polyphony = 4
+bus = &"SFX"
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="SFX" unique_id=2138850189]
+unique_name_in_owner = true
+stream = ExtResource("8_fcbtk")
+max_polyphony = 4
+bus = &"SFX"
+
+[node name="Dive" type="AudioStreamPlayer2D" parent="SFX" unique_id=2109355533]
+unique_name_in_owner = true
+stream = ExtResource("10_lao1n")
+max_polyphony = 4
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

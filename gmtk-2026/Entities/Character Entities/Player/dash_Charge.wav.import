@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cs12hqdx337t"
+path="res://.godot/imported/dash_Charge.wav-086035054b51c3d51294fcf37f0b8119.sample"
+
+[deps]
+
+source_file="res://Entities/Character Entities/Player/dash_Charge.wav"
+dest_files=["res://.godot/imported/dash_Charge.wav-086035054b51c3d51294fcf37f0b8119.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
