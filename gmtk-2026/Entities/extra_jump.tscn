@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://c8idgk45t7shn"]
+
+[ext_resource type="Script" uid="uid://ccx8jieyqpicm" path="res://Entities/Scripts/extra_jump.gd" id="1_egw0b"]
+[ext_resource type="Texture2D" uid="uid://ba7jos2bqecva" path="res://Entities/Particles/sprites/feather.png" id="2_1glb6"]
+
+[sub_resource type="Curve" id="Curve_ucim2"]
+_data = [Vector2(0.018433183, 0.5617978), 0.0, 0.0, 0, 0, Vector2(0.9815668, 0.056179762), -1.4757546, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hjb8m"]
+curve = SubResource("Curve_ucim2")
+
+[sub_resource type="Curve" id="Curve_2hfg6"]
+_data = [Vector2(0.009216592, 0.4044944), 0.0, 0.0, 0, 0, Vector2(0.9953917, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y21qx"]
+curve = SubResource("Curve_2hfg6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lfxu0"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 4.9999776
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_y21qx")
+alpha_curve = SubResource("CurveTexture_hjb8m")
+
+[sub_resource type="Animation" id="Animation_ypuja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dkoxg"]
+resource_name = "normal"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7a5od"]
+_data = {
+&"RESET": SubResource("Animation_ypuja"),
+&"normal": SubResource("Animation_dkoxg")
+}
+
+[sub_resource type="Animation" id="Animation_8rgit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qrvte"]
+resource_name = "normal"
+length = 3.0000000000000004
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.17453292519943295, 0.17453292519943295, -0.17453292519943295]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqgb5"]
+_data = {
+&"RESET": SubResource("Animation_8rgit"),
+&"normal": SubResource("Animation_qrvte")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfxu0"]
+radius = 8.0
+
+[node name="Extra Jump" type="Node2D" unique_id=1559934312]
+script = ExtResource("1_egw0b")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1072478391]
+process_material = SubResource("ParticleProcessMaterial_lfxu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=713930695]
+texture = ExtResource("2_1glb6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=865833432]
+libraries/ = SubResource("AnimationLibrary_7a5od")
+autoplay = &"normal"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1495620662]
+libraries/ = SubResource("AnimationLibrary_yqgb5")
+autoplay = &"normal"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1364523647]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1506405466]
+shape = SubResource("CircleShape2D_lfxu0")
+
+[node name="Timer" type="Timer" parent="." unique_id=886953068]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

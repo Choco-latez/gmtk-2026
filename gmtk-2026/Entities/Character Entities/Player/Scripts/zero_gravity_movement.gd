@@ -54,7 +54,11 @@ func get_standing_vector()->Vector2:
 	return vec
 
 func handle_dive():
+	if player.additional_jumps_available <= 0:
+		return
+	
 	if Input.is_action_just_pressed("DIVE") and player.dive_available and  standing_dir == standing_directions.NONE:
+		player.additional_jumps_available-=1
 		%"Dive Timer".wait_time = 0.5
 		%"Dive Timer".start()
 		player.dive_available = false
@@ -75,7 +79,7 @@ func handle_dive():
 		if input!= Vector2.ZERO:
 			player.velocity = - (input.normalized())*player.JUMP_VELOCITY *4
 		else:
-			player.velocity = jumping_dir*player.JUMP_VELOCITY *4
+			player.velocity = jumping_dir*player.JUMP_VELOCITY *4 
 			
 		await %"Dive Timer".timeout
 		player.diving = false
@@ -107,7 +111,6 @@ func handle_jump():
 			else: 
 				jumping_dir = - input.normalized()
 			player.velocity = jumping_dir * player.JUMP_VELOCITY 
-			player.jump_particles_instantiate()
 		
 	elif standing_dir == standing_directions.NONE:
 		if Input.is_action_just_pressed("JUMP") and player.additional_jumps_available > 0:
@@ -119,7 +122,8 @@ func handle_jump():
 				player.velocity = jumping_dir*player.JUMP_VELOCITY
 			else:
 				print("asd")
-				player.velocity -= (input.normalized()) * player.JUMP_VELOCITY
+				jumping_dir = -(input.normalized()) 
+				player.velocity = jumping_dir*player.JUMP_VELOCITY
 			player.jump_particles_instantiate()
 			player.additional_jumps_available -=1
 			

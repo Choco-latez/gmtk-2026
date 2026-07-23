@@ -87,6 +87,35 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_y21qx")
 alpha_curve = SubResource("CurveTexture_n65on")
 
+[sub_resource type="Curve" id="Curve_y21qx"]
+_data = [Vector2(0.0027397275, 1), 0.0, 0.0, 0, 0, Vector2(0.9863014, 0.45833337), -1.039886, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ucim2"]
+curve = SubResource("Curve_y21qx")
+
+[sub_resource type="Curve" id="Curve_jpkce"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99178076, 0.37062943), -1.6590918, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g2mn5"]
+curve = SubResource("Curve_jpkce")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_odlsx"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 49.999977
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.79999995
+scale_curve = SubResource("CurveTexture_g2mn5")
+alpha_curve = SubResource("CurveTexture_ucim2")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u82tg"]
 size = Vector2(6, 14)
 
@@ -218,6 +247,7 @@ _data = {
 collision_layer = 2
 script = ExtResource("1_y01m2")
 jump_particle_instance = ExtResource("2_jpkce")
+base_additional_jumps = 0
 
 [node name="Particles" type="Node2D" parent="." unique_id=494589182]
 position = Vector2(0, 6)
@@ -243,6 +273,13 @@ emitting = false
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_r6c0r")
 
+[node name="Death Particles" type="GPUParticles2D" parent="Particles" unique_id=1288487213]
+position = Vector2(0, -6)
+emitting = false
+amount = 32
+texture = ExtResource("2_ym8wo")
+process_material = SubResource("ParticleProcessMaterial_odlsx")
+
 [node name="Normal Movement" type="Node2D" parent="." unique_id=1987921560 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
 script = ExtResource("2_yglxg")
@@ -261,11 +298,23 @@ hframes = 4
 vframes = 4
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1772318761]
+visible = false
 shape = SubResource("RectangleShape2D_u82tg")
+
+[node name="Death Anim Timer" type="Timer" parent="." unique_id=1965335127]
 
 [node name="Coyote Time" type="Timer" parent="." unique_id=767765018]
 unique_name_in_owner = true
 wait_time = 0.3
+one_shot = true
+
+[node name="Swan Time" type="Timer" parent="." unique_id=132042822]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Swan Time Recharge" type="Timer" parent="Swan Time" unique_id=793853900]
+unique_name_in_owner = true
+wait_time = 30.0
 one_shot = true
 
 [node name="Jump Timer" type="Timer" parent="." unique_id=2075924328]
@@ -301,6 +350,8 @@ player = NodePath("..")
 [connection signal="timeout" from="Coyote Time" to="." method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Normal Movement" method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Zero Gravity Movement" method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="Swan Time" to="." method="_on_swan_time_timeout"]
+[connection signal="timeout" from="Swan Time/Swan Time Recharge" to="." method="_on_swan_time_recharge_timeout"]
 [connection signal="timeout" from="Jump Timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Jump Timer" to="Normal Movement" method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Dive Timer" to="." method="_on_dive_timer_timeout"]
