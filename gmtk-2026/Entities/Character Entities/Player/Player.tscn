@@ -347,6 +347,9 @@ autoplay = &"idle"
 script = ExtResource("7_u1n50")
 player = NodePath("..")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1968756303]
+zoom = Vector2(4.5, 4.5)
+
 [connection signal="timeout" from="Coyote Time" to="." method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Normal Movement" method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Coyote Time" to="Zero Gravity Movement" method="_on_coyote_time_timeout"]

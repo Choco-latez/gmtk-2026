@@ -15,6 +15,8 @@ var additional_jumps_available : int
 
 @export var dive_unlocked :bool = false
 
+@export var default_gravity := true
+
 var dive_available : bool = true
 var diving : bool = false
 
@@ -57,7 +59,7 @@ func die() -> void:
 	died.emit()
 
 func _ready() -> void:
-	apply_gravity(false)
+	apply_gravity(default_gravity)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug1"):
