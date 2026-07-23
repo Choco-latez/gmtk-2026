@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_uxbqh"]
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/character_body_2d.tscn" id="2_wvdts"]
 [ext_resource type="PackedScene" uid="uid://dds2p5sjha4ll" path="res://Entities/Character Entities/Spikes/Spikes.tscn" id="3_dwmtj"]
+[ext_resource type="PackedScene" uid="uid://c8idgk45t7shn" path="res://Entities/extra_jump.tscn" id="5_s04jt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvdts"]
 texture = ExtResource("1_uxbqh")
@@ -1055,6 +1056,8 @@ tile_set = SubResource("TileSet_lfxu0")
 
 [node name="CharacterBody2D" parent="." unique_id=1420188091 instance=ExtResource("2_wvdts")]
 position = Vector2(2, 41)
+base_additional_jumps = 5
+dive_unlocked = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
 zoom = Vector2(5, 5)
@@ -1073,3 +1076,9 @@ offset_top = -9.0
 offset_right = 1292.0
 offset_bottom = 742.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Extra Jump" parent="." unique_id=1559934312 instance=ExtResource("5_s04jt")]
+position = Vector2(-23, 12)
+
+[node name="Extra Jump2" parent="." unique_id=253850716 instance=ExtResource("5_s04jt")]
+position = Vector2(30, 8)

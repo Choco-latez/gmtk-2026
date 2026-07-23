@@ -57,7 +57,7 @@ func die() -> void:
 	died.emit()
 
 func _ready() -> void:
-	apply_gravity(true)
+	apply_gravity(false)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug1"):
