@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://cr4imgfohw23a"]
 
-[ext_resource type="Texture2D" uid="uid://d1b6wnhs6lha7" path="res://Sprites/tileset.png" id="1_5yvnv"]
+[ext_resource type="Texture2D" uid="uid://diqmtjcu1wfvs" path="res://Sprites/tileset.png" id="1_5yvnv"]
 [ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_gkvdi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awkel"]
