@@ -6,7 +6,7 @@
 script = ExtResource("1_okb3i")
 tween_time = 1.0
 tween_type = 1
-door_open = PackedVector2Array(5, 5, 5, -5, -5, -5, -5, 5)
+door_open = PackedVector2Array(10, 10, 10, -10, -10, -10, -10, 10)
 door_closed = PackedVector2Array(-5, 5, -5, -5, -5, -5, -5, 5)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=939469250]

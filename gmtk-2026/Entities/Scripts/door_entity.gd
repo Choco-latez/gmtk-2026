@@ -10,6 +10,10 @@ var tween : Tween
 var openness : float = 1.0
 var is_open : bool = false
 
+func _ready() -> void:
+	super()
+	set_points(door_closed)
+
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug1"):
@@ -20,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	var arr : PackedVector2Array = []
 	for x in 4:
 		var vec: Vector2 = Vector2.ZERO
-		vec = lerp(door_closed[x],door_open[x],openness)
+		vec = lerp(door_open[x],door_closed[x],openness)
 		arr.append(vec)
 	set_points(arr)
 
