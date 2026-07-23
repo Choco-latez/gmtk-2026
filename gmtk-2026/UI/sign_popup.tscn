@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cesnrjpymgyr4"]
+
+[ext_resource type="Script" uid="uid://di0imo1mq3a81" path="res://UI/Scripts/sign_popup.gd" id="1_fvjqs"]
+
+[node name="Sign Popup" type="CanvasLayer" unique_id=172546286]
+script = ExtResource("1_fvjqs")
+
+[node name="Popup" type="CenterContainer" parent="." unique_id=712011837]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Popup" unique_id=947722618]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/PanelContainer" unique_id=769933594]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/PanelContainer/MarginContainer" unique_id=1229073134]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Popup/PanelContainer/MarginContainer/VBoxContainer" unique_id=1666043437]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "ENTRY TITLE"
+
+[node name="Info" type="RichTextLabel" parent="Popup/PanelContainer/MarginContainer/VBoxContainer" unique_id=1197788015]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+text = "ah blah bah b;[oeufiwefoiqwhfiowhefoiwebvowboefwo
+fwefre
+wefeefefwev
+wfev"
+
+[node name="exit" type="Label" parent="Popup/PanelContainer/MarginContainer/VBoxContainer" unique_id=1850692352]
+unique_name_in_owner = true
+layout_mode = 2
+text = "press Escape or C to close"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1345548558]
+wait_time = 0.5
+one_shot = true

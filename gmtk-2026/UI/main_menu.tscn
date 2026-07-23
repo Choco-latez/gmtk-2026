@@ -256,10 +256,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "DIVE/DASH : Z"
 
-[node name="INTERACT" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2" unique_id=1059049896]
+[node name="USE" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2" unique_id=1059049896]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "INTERACT : C"
+text = "USE : C"
 
 [node name="MENU" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2" unique_id=1982227979]
 layout_mode = 2
@@ -394,7 +394,7 @@ layout_mode = 2
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer/RIGHT" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_right_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2/JUMP" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_jump_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2/DIVE" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_dive_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2/INTERACT" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_interact_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2/USE" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_interact_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer2/MENU" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_menu_button_down"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Level Select" to="." method="_on_level_select_button_down"]
