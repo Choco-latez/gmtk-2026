@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dcmsbb2x3n66b"]
 
+[ext_resource type="Script" uid="uid://diwfi7436hw1t" path="res://Map/Map.gd" id="1_hpyjb"]
 [ext_resource type="Texture2D" uid="uid://b8ga7q73wvc7i" path="res://Sprites/temp tileset.png" id="1_uxbqh"]
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/character_body_2d.tscn" id="2_wvdts"]
 [ext_resource type="PackedScene" uid="uid://dds2p5sjha4ll" path="res://Entities/Character Entities/Spikes/Spikes.tscn" id="3_dwmtj"]
@@ -1040,7 +1041,11 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_wvdts")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="Map Test" type="Node2D" unique_id=1108890214]
+script = ExtResource("1_hpyjb")
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1144737448]
 
@@ -1052,8 +1057,19 @@ tile_set = SubResource("TileSet_lfxu0")
 position = Vector2(2, 41)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1867189765]
+visible = false
 zoom = Vector2(5, 5)
 position_smoothing_speed = 0.0
 
 [node name="Spikes" parent="." unique_id=630616832 instance=ExtResource("3_dwmtj")]
 position = Vector2(45, 52)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=510629068]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1648633020]
+modulate = Color(0, 0, 0, 1)
+offset_left = -1.0
+offset_top = -9.0
+offset_right = 1292.0
+offset_bottom = 742.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
