@@ -149,7 +149,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_ev3b6")
-text = "SWANDER SPACE"
+text = "SWANSHIP ESCAPE"
 label_settings = SubResource("LabelSettings_lfxu0")
 horizontal_alignment = 1
 
@@ -254,6 +254,10 @@ Chocolatez
 
 1 bit tileset from Teaceratops
 https://teaceratops.itch.io/1-bit-tileset
+
+Fonts Used (licensed under OpenFontLicense):
+GeistPixel - Regular
+PixelifySans - VariableFont
 
 And a thank you to GMTK for making me productive once a year!! Yippee!!
 
