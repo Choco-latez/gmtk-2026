@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b1gvllyfmd7wn"]
+
+[ext_resource type="Script" uid="uid://d1cjq7d1u68ud" path="res://Entities/Scripts/powerup.gd" id="1_ls2ue"]
+[ext_resource type="Texture2D" uid="uid://bqelv4v7a1q3v" path="res://Sprites/bright.png" id="2_el8vv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfxu0"]
+radius = 12.0
+
+[sub_resource type="Curve" id="Curve_g2mn5"]
+_data = [Vector2(0.013824888, 1), 0.0, 0.0, 0, 0, Vector2(0.9861752, 0.04494381), -0.93225366, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_odlsx"]
+curve = SubResource("Curve_g2mn5")
+
+[sub_resource type="Curve" id="Curve_rrukl"]
+_data = [Vector2(0.004608296, 0), 0.0, 1.0449445, 0, 0, Vector2(0.9861752, 1), -2.0219245, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r6c0r"]
+curve = SubResource("Curve_rrukl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hjb8m"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.3
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+orbit_velocity_min = -0.19999991
+orbit_velocity_max = 0.2000001
+radial_velocity_min = 4.9999776
+radial_velocity_max = 9.999977
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_r6c0r")
+alpha_curve = SubResource("CurveTexture_odlsx")
+
+[sub_resource type="Curve" id="Curve_r6c0r"]
+_data = [Vector2(0.036866367, 0.9325843), 0.0, -2.3664904, 0, 0, Vector2(1, 0.17977536), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hjb8m"]
+curve = SubResource("Curve_r6c0r")
+
+[sub_resource type="Curve" id="Curve_mg3u2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.52808994), -0.58853155, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g2mn5"]
+curve = SubResource("Curve_mg3u2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lfxu0"]
+particle_flag_disable_z = true
+angular_velocity_min = -100.000015
+angular_velocity_max = 99.999985
+orbit_velocity_min = -0.99999994
+orbit_velocity_max = 1.0000001
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 4.9999776
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.03
+scale_curve = SubResource("CurveTexture_g2mn5")
+alpha_curve = SubResource("CurveTexture_hjb8m")
+
+[node name="Powerup" type="Node2D" unique_id=1336359851]
+script = ExtResource("1_ls2ue")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1499132553]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2019420258]
+shape = SubResource("CircleShape2D_lfxu0")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=916901064]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_hjb8m")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1184773238]
+texture = ExtResource("2_el8vv")
+process_material = SubResource("ParticleProcessMaterial_lfxu0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
