@@ -11,3 +11,5 @@ var current_level : int = 0
 var unlocked_levels : int = 0
 
 var fastdeath : bool = false
+
+var no_boss_cutscene : bool = false

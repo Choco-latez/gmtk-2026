@@ -26,4 +26,5 @@ func die():
 		tween.set_trans(Tween.TRANS_SINE)
 		tween.tween_property($CanvasLayer/Panel, "modulate", Color8(0,0,0,255), 0.5)
 		await tween.finished
-		get_tree().reload_current_scene()
+		if get_tree() != null:
+			get_tree().reload_current_scene()

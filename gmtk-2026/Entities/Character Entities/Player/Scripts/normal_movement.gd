@@ -8,9 +8,12 @@ extends Node2D
 
 func _physics_process(delta: float) -> void:
 	gravity(delta)
-	handle_dive()
-	handle_jump()
-	calculate_movement()
+	if !player.cutscene_control:
+		handle_dive()
+		handle_jump()
+		calculate_movement()
+	else:
+		player.velocity.x = move_toward(player.velocity.x, 0, player.SPEED)
 
 	player.move_and_slide()
 	

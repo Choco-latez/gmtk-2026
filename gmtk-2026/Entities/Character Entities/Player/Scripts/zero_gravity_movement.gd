@@ -11,9 +11,10 @@ var jumping_dir:Vector2
 
 func _physics_process(delta: float) -> void:
 	get_standing_dir()
-	handle_jump()
-	handle_dive()
-	calculate_movement()
+	if !player.cutscene_control:
+		handle_jump()
+		handle_dive()
+		calculate_movement()
 	
 	player.move_and_slide()
 	
