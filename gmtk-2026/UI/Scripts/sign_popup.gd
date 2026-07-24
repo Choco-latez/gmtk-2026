@@ -26,3 +26,6 @@ func close():
 func _physics_process(delta: float) -> void:
 	if (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("USE")) and $Timer.is_stopped() :
 		close()
+	if %Title.text == "NEW ABILITY":
+		if Input.is_action_just_pressed("UP") or Input.is_action_just_pressed("DOWN") or Input.is_action_just_pressed("LEFT") or Input.is_action_just_pressed("RIGHT"):
+			close()

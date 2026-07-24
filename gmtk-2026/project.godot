@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://dfg7mgunc68uh"
 
 Savedata="*uid://b5bbvgwuqvkfa"
 SignalBus="*uid://bw1ofpbj1w1lj"
+MusicManager="*uid://dypbmvgcp3r6k"
 
 [display]
 
