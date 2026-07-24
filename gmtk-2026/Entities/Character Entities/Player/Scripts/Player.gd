@@ -27,15 +27,28 @@ var swan_time_available :bool = true
 
 var cutscene_control : bool = false
 
+func into_place(pos:Vector2):
+	cutscene_control = true
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self,"position",pos, 0.1)
+
+func transform():
+	$AnimManager.queue_free()
+	%AnimationPlayer.play("transform")
+func honk():
+	%AnimationPlayer.play("honk")
+func honk_run():
+	%AnimationPlayer.play("swan run")
+	var tween = get_tree().create_tween()
+	tween.tween_property(self,"position",Vector2( position.x + 300  ,position.y), 2)
 
 func start_cutscene():
 	cutscene_control = true
-	%"Normal Movement".process_mode = Node.PROCESS_MODE_DISABLED
-	%"Zero Gravity Movement".process_mode = Node.PROCESS_MODE_DISABLED
+
 	
 func stop_cutscene():
 	cutscene_control = false
-	apply_gravity(gravity)
 
 
 func swan_time():

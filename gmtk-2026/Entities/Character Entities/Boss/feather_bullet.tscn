@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b4s3yv3uhkiir"]
+
+[ext_resource type="Script" uid="uid://c7owxn5b1kfwj" path="res://Entities/Character Entities/Boss/Scripts/feather_bullet.gd" id="1_gjudv"]
+[ext_resource type="Texture2D" uid="uid://ba7jos2bqecva" path="res://Entities/Particles/sprites/feather.png" id="1_xuvk7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_odlsx"]
+blend_mode = 3
+
+[sub_resource type="Curve" id="Curve_r6c0r"]
+_data = [Vector2(0.014440432, 1), 0.0, 0.0, 0, 0, Vector2(0.9855596, 0), -0.7432912, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hjb8m"]
+curve = SubResource("Curve_r6c0r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lfxu0"]
+particle_flag_disable_z = true
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 4.9999776
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_hjb8m")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfxu0"]
+size = Vector2(6, 2)
+
+[node name="feather bullet" type="Node2D" unique_id=847477275]
+script = ExtResource("1_gjudv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1643829547]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_odlsx")
+process_material = SubResource("ParticleProcessMaterial_lfxu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566791550]
+modulate = Color(1, 0, 0, 1)
+rotation = 0.9023967
+texture = ExtResource("1_xuvk7")
+offset = Vector2(0.655, 0)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=357148215]
+rotation = 3.0840583
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=62730730]
+shape = SubResource("RectangleShape2D_lfxu0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

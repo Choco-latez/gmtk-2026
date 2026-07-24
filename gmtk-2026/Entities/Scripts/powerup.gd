@@ -1,7 +1,7 @@
 class_name powerup
 extends SignEntity
 
-enum powerups{ADDITIONAL_JUMPS,DIVE,TIME_SLOW}
+enum powerups{ADDITIONAL_JUMPS,DIVE,TIME_SLOW, BOSS}
 @export var powerup_type : powerups
 var info = 0
 
@@ -12,6 +12,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.dive_unlocked = true
 	elif powerup_type == powerups.TIME_SLOW:
 		body.swan_time_unlocked = true
+	else:
+		body.base_additional_jumps +=1
 	$GPUParticles2D.emitting = false
 	$GPUParticles2D2.emitting = false
 	$Area2D.monitoring = false
