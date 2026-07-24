@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ba7jos2bqecva" path="res://Entities/Particles/sprites/feather.png" id="7_mcq8e"]
 [ext_resource type="PackedScene" uid="uid://b4s3yv3uhkiir" path="res://Entities/Character Entities/Boss/feather_bullet.tscn" id="7_pt5ts"]
 [ext_resource type="PackedScene" uid="uid://dk5430gbgsj6x" path="res://Entities/Character Entities/Boss/debris_fall.tscn" id="8_1ik8f"]
+[ext_resource type="PackedScene" uid="uid://bf0tp1d4suvgu" path="res://UI/countdown.tscn" id="14_s71sp"]
 
 [sub_resource type="Animation" id="Animation_s71sp"]
 length = 0.001
@@ -493,6 +494,20 @@ tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(13.033334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("%BOSS/../UI/Countdown")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(12.933333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -987,6 +1002,20 @@ tracks/8/keys = {
 "method": &"stop_music"
 }]
 }
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%BOSS/../UI/Countdown")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s71sp"]
 _data = {
@@ -1114,7 +1143,7 @@ position = Vector2(-146, -9)
 shape = SubResource("RectangleShape2D_r6c0r")
 
 [node name="Timer" type="Timer" parent="Cutscene manager" unique_id=1566918590]
-wait_time = 2.0
+wait_time = 20.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1357264006]
 unique_name_in_owner = true
@@ -1283,6 +1312,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_hjb8m")
 value = 97.79
 fill_mode = 3
 show_percentage = false
+
+[node name="Countdown" parent="UI" unique_id=1818328806 instance=ExtResource("14_s71sp")]
+offset_left = -48.220627
+offset_top = 78.61909
+offset_right = -48.22058
+offset_bottom = 78.61908
+countdown_time = 60.0
 
 [connection signal="body_entered" from="Cutscene manager/Area2D" to="Cutscene manager" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Cutscene manager/Timer" to="Cutscene manager" method="_on_timer_timeout"]
