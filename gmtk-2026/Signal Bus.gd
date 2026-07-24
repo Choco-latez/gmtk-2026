@@ -7,7 +7,7 @@ func start_exit_anim(pos):
 
 func swap_scene():
 	print("changed scene")
-	get_tree().change_scene_to_file(Savedata.Levels.get(  Savedata.current_level+1 ))
+	get_tree().change_scene_to_file((Savedata.Levels.get(  Savedata.current_level+1 )).get(0))
 	Savedata.unlocked_levels +=1
 
 
