@@ -31,10 +31,16 @@ func _physics_process(delta: float) -> void:
 	if not pause_timer:
 		if gravity_working:
 			%ProgressBar.value = $Timer.time_left
-			%ProgressLabel.text = str(int(round($Timer.time_left))) + " seconds left until gravity's out!"
+			if int(round($Timer.time_left)) == 1:
+				%ProgressLabel.text = str(int(round($Timer.time_left))) + " second left until gravity's out!"
+			else:
+				%ProgressLabel.text = str(int(round($Timer.time_left))) + " seconds left until gravity's out!"
 		else:
 			%ProgressBar.value = countdown_time - $Timer.time_left
-			%ProgressLabel.text = str(int (round($Timer.time_left))) + " seconds left until gravity's back!"
+			if int(round($Timer.time_left)) == 1:
+				%ProgressLabel.text = str(int(round($Timer.time_left))) + " second left until gravity's back!"
+			else:
+				%ProgressLabel.text = str(int(round($Timer.time_left))) + " seconds left until gravity's back!"
 
 func _on_timer_timeout() -> void:
 	gravity_working = !gravity_working
