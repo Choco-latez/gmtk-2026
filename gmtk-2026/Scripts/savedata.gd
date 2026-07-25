@@ -2,8 +2,8 @@ extends Node
 
 # replace with actual levels in order
 var Levels = [
-	"res://Map/Tutorial.tscn",
-	"res://Map/Level2.tscn",
+	"res://Map/platformPart1.tscn",
+	"res://Map/platformPart2.tscn",
 	"res://Map/level 3.tscn",
 	"res://Map/level 4.tscn"
 ]

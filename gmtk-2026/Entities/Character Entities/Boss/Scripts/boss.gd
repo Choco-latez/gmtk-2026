@@ -11,6 +11,9 @@ var acts = ["Idle","Idle","Idle","Shoot","Smack","Honk"]
 var last_anim ="Init"
 var HP = 3
 
+@onready var boss_yell: AudioStreamPlayer2D = %BossYell
+@onready var boss_beam: AudioStreamPlayer2D = %BossBeam
+
 func start_music():
 	MusicManager.mute = false
 	MusicManager.swap_music(2)
@@ -19,6 +22,7 @@ func start_music():
 func debris():
 	var debris = debris_fall.instantiate()
 	debris.position = Vector2(%Player.position.x ,0)
+	boss_beam.play()
 	$Bullets.add_child(debris)
 
 func shoot_bullet(pos:Vector2, rot: float):
@@ -26,6 +30,7 @@ func shoot_bullet(pos:Vector2, rot: float):
 	bullet.dir = Vector2.from_angle(deg_to_rad(rot))
 	bullet.position = pos
 	bullet.rotation = rot
+	boss_yell.play()
 	$Bullets.add_child(bullet)
 
 func shoot_bullets():
