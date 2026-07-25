@@ -128,11 +128,11 @@ func handle_jump():
 			var input = Input.get_vector("LEFT","RIGHT","UP","DOWN")
 			if input == Vector2.ZERO:
 				print("asd")
-				player.velocity = jumping_dir*player.JUMP_VELOCITY
+				player.velocity += jumping_dir*player.JUMP_VELOCITY
 			else:
 				print("asd")
 				jumping_dir = -(input.normalized()) 
-				player.velocity = jumping_dir*player.JUMP_VELOCITY
+				player.velocity += jumping_dir*player.JUMP_VELOCITY
 			player.jump_particles_instantiate()
 			player.additional_jumps_available -=1
 			

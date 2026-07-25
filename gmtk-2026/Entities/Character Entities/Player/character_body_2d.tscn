@@ -401,8 +401,6 @@ collision_layer = 2
 script = ExtResource("1_y01m2")
 jump_particle_instance = ExtResource("2_jpkce")
 base_additional_jumps = 0
-dive_unlocked = null
-swan_time_unlocked = null
 
 [node name="Particles" type="Node2D" parent="." unique_id=494589182]
 position = Vector2(0, 6)
@@ -454,7 +452,7 @@ player = NodePath("..")
 unique_name_in_owner = true
 texture = ExtResource("6_jpkce")
 hframes = 4
-vframes = 8
+vframes = 9
 
 [node name="Area2D" type="Area2D" parent="." unique_id=227272008]
 visible = false
