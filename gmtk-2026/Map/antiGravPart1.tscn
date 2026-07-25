@@ -49,6 +49,12 @@ position = Vector2(101, -50)
 sign_title = "Engineers notes"
 Signtext = "The captain's really come across something amazing... although, I do wonder if it's stable enough for the ship?"
 
+[node name="LeverNode" parent="." unique_id=2052310420 instance=ExtResource("7_eisxa")]
+position = Vector2(205, 106)
+
+[node name="Countdown Manager" type="Node2D" parent="LeverNode" unique_id=323132081]
+script = ExtResource("8_xgaxe")
+
 [node name="Player" parent="." unique_id=1420188091 instance=ExtResource("6_k17lu")]
 position = Vector2(23, 118)
 
@@ -58,12 +64,6 @@ limit_left = 0
 limit_top = -168
 limit_right = 448
 limit_bottom = 144
-
-[node name="LeverNode" parent="." unique_id=2052310420 instance=ExtResource("7_eisxa")]
-position = Vector2(205, 106)
-
-[node name="Countdown Manager" type="Node2D" parent="LeverNode" unique_id=323132081]
-script = ExtResource("8_xgaxe")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=119521269]
 visible = false
