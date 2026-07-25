@@ -16,6 +16,8 @@ func stop_music():
 
 func _physics_process(delta: float) -> void:
 	if beginning:
+		if Input.is_action_just_pressed("USE"):
+			%Player.apply_gravity(!%Player.gravity)
 		if %Camera2D.position.x != %Player.position.x + 150:
 			if %Player.position.x + 150 > %Camera2D.position.x:
 				%Camera2D.position.x = %Player.position.x + 150
@@ -34,6 +36,8 @@ func _physics_process(delta: float) -> void:
 		%Hitbox.monitorable = true
 	if in_fight:
 		%"Time Bar".value = $Timer.time_left
+		if Input.is_action_just_pressed("USE"):
+			%Player.apply_gravity(!%Player.gravity)
 	if ending_fight_anim:
 		pass
 
