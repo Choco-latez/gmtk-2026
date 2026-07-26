@@ -2,6 +2,7 @@ class_name Map
 extends Node2D
 
 @export var autostart_countdown : bool
+@export var index_of_music_to_play: int
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,6 +10,7 @@ func _ready() -> void:
 	$Player.died.connect(die)
 	if get_node_or_null("UI") != null:
 		$UI.visible = true
+	MusicManager.swap_music(index_of_music_to_play)
 	
 	if not Savedata.fastdeath:
 		$CanvasLayer.visible = true

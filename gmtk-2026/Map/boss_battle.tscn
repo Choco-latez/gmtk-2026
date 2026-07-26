@@ -1085,6 +1085,7 @@ border_color = Color(0, 0, 0, 1)
 
 [node name="BOSS BATTLE" type="Node2D" unique_id=2070662161]
 script = ExtResource("1_f4lgd")
+index_of_music_to_play = -1
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=421673430]
 

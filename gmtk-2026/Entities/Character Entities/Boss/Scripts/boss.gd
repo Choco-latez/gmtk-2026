@@ -16,7 +16,7 @@ var HP = 3
 
 func start_music():
 	MusicManager.mute = false
-	MusicManager.swap_music(2)
+	MusicManager.swap_music(3)
 	MusicManager.play()
 
 func debris():
