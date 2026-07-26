@@ -76,7 +76,7 @@ position = Vector2(-15, 166)
 
 [node name="DoorEntity" parent="." unique_id=1421958615 node_paths=PackedStringArray("button") instance=ExtResource("9_6wfl2")]
 position = Vector2(75, 30)
-door_open = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+door_open = PackedVector2Array(7, 17, 7, 17, -5, 17, -5, 17)
 door_closed = PackedVector2Array(7, 17, 7, -5, -5, -5, -5, 17)
 button = NodePath("../SwitchNode")
 
