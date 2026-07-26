@@ -11,9 +11,6 @@ var at_basis := true
 
 var tween : Tween
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("debug1"):
-		turned_on()
 
 func turned_on():
 	if tween:

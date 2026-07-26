@@ -16,11 +16,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("debug1"):
-		turned_on()
-	if Input.is_action_just_pressed("debug2"):
-		turned_off()
-	
 	var arr : PackedVector2Array = []
 	for x in 4:
 		var vec: Vector2 = Vector2.ZERO

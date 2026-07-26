@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b4yl2ej5a630h" path="res://Entities/Character Entities/Player/jump.wav" id="8_fcbtk"]
 [ext_resource type="AudioStream" uid="uid://cs12hqdx337t" path="res://Entities/Character Entities/Player/dash_Charge.wav" id="9_7u5uf"]
 [ext_resource type="AudioStream" uid="uid://vn8tqyuxnsg1" path="res://Entities/Character Entities/Player/dash_go.wav" id="10_lao1n"]
+[ext_resource type="AudioStream" uid="uid://c5aiuf5lwrgka" path="res://Audio/GravSwitch.wav" id="12_lao1n"]
 
 [sub_resource type="Curve" id="Curve_ucim2"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.66891897, 0.94382024), -0.41573027, -0.41573027, 0, 0, Vector2(0.98648655, 0), -3.1699436, 0.0, 0, 0]
@@ -455,6 +456,8 @@ collision_layer = 2
 script = ExtResource("1_y01m2")
 jump_particle_instance = ExtResource("2_jpkce")
 base_additional_jumps = 0
+dive_unlocked = null
+swan_time_unlocked = null
 
 [node name="Particles" type="Node2D" parent="." unique_id=494589182]
 position = Vector2(0, 6)
@@ -585,6 +588,11 @@ unique_name_in_owner = true
 stream = ExtResource("10_lao1n")
 max_polyphony = 4
 bus = &"SFX"
+
+[node name="GravSwitch" type="AudioStreamPlayer2D" parent="SFX" unique_id=2109202624]
+unique_name_in_owner = true
+stream = ExtResource("12_lao1n")
+max_polyphony = 4
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -87,15 +87,11 @@ func die() -> void:
 	died.emit()
 
 func _ready() -> void:
-	apply_gravity(true)
+	apply_gravity(true, true)
 	SignalBus.connect("change_gravity",apply_gravity)
 	connect("ability_used",SignalBus.use_ability)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("debug1"):
-		apply_gravity(!gravity)
-	if Input.is_action_just_pressed("debug2"):
-		die()
 	swan_time()
 	
 func change_gravity(new_grav : Vector2) -> void:
@@ -111,8 +107,10 @@ func _change_player_grav() -> void:
 			change_gravity(Vector2.DOWN)
 			grav_norm = true
 
-
-func apply_gravity(true_or_false:bool):
+@onready var grav_switch: AudioStreamPlayer2D = %GravSwitch
+func apply_gravity(true_or_false:bool, first_run : bool):
+	if not first_run:
+		grav_switch.play()
 	if true_or_false:
 		%"Normal Movement".process_mode = Node.PROCESS_MODE_INHERIT
 		%"Zero Gravity Movement".process_mode = Node.PROCESS_MODE_DISABLED

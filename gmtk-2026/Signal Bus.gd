@@ -31,7 +31,7 @@ func load_finish():
 
 signal change_gravity(gravity)
 func ch_gravity(gravity):
-	change_gravity.emit(gravity)
+	change_gravity.emit(gravity, false)
 
 signal used_ability
 func use_ability():
