@@ -431,7 +431,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/imported = false
-tracks/10/enabled = true
+tracks/10/enabled = false
 tracks/10/path = NodePath("%AnimationPlayer:speed_scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
@@ -504,6 +504,18 @@ tracks/15/keys = {
 "args": [],
 "method": &"start"
 }]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("%BossIntro:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 10.1, 13.033334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_7tual"]
@@ -723,6 +735,18 @@ tracks/17/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("%BossIntro:playing")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_pt5ts"]
@@ -995,6 +1019,18 @@ tracks/8/keys = {
 "args": [],
 "method": &"fin"
 }]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%BossIntro:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s71sp"]
