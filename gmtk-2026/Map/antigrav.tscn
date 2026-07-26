@@ -17,6 +17,7 @@ bg_color = Color(1, 1, 1, 1)
 [node name="Map" type="Node2D" unique_id=470068195]
 script = ExtResource("1_uce7s")
 autostart_countdown = true
+index_of_music_to_play = 1
 metadata/_custom_type_script = "uid://diwfi7436hw1t"
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=710628400]

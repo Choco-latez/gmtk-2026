@@ -2,7 +2,9 @@ extends AudioStreamPlayer
 
 var Musics = [preload( "res://Audio/Area 1-1.mp3"),
 preload("res://Audio/Area 2-1.mp3"),
-preload("res://Audio/Area 3-1.mp3")]
+preload("res://Audio/Area 3-1.mp3"),
+preload("res://Audio/Boss.mp3")
+]
 var mute = false
 var cur_music = 0
 
@@ -14,6 +16,8 @@ func _ready() -> void:
 	play()
 
 func swap_music(index):
+	if index == -1:
+		return
 	if index != cur_music:
 		cur_music = index
 		set_stream(Musics[index])

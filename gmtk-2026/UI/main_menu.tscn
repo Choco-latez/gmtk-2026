@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cg2ujug2km488" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="3_8ctay"]
 [ext_resource type="Script" uid="uid://dsm0g2viev2cp" path="res://UI/Scripts/audioslider.gd" id="3_d8nwk"]
 [ext_resource type="FontFile" uid="uid://diosuryr60tby" path="res://Fonts/GeistPixel-Regular-VariableFont_ELSH.ttf" id="4_ev3b6"]
+[ext_resource type="Script" uid="uid://ceococqc1jctu" path="res://UI/Scripts/levelbutton.gd" id="5_ev3b6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
 bg_color = Color(0, 0, 0, 1)
@@ -173,11 +174,10 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Level Select Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer" unique_id=1277292668]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="BoxContainer" type="FlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel" unique_id=1943804178]
-custom_minimum_size = Vector2(320, 0)
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -190,6 +190,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "1"
+script = ExtResource("5_ev3b6")
 
 [node name="2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=145139024]
 custom_minimum_size = Vector2(100, 100)
@@ -198,6 +199,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "2"
+script = ExtResource("5_ev3b6")
 
 [node name="3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=2050056714]
 custom_minimum_size = Vector2(100, 100)
@@ -206,6 +208,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "3"
+script = ExtResource("5_ev3b6")
 
 [node name="4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=1249503986]
 custom_minimum_size = Vector2(100, 100)
@@ -214,6 +217,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "4"
+script = ExtResource("5_ev3b6")
 
 [node name="5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=2100084138]
 custom_minimum_size = Vector2(100, 100)
@@ -222,6 +226,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "5"
+script = ExtResource("5_ev3b6")
 
 [node name="6" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=784949809]
 custom_minimum_size = Vector2(100, 100)
@@ -230,6 +235,43 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 text = "6"
+script = ExtResource("5_ev3b6")
+
+[node name="7" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=93032427]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "7"
+script = ExtResource("5_ev3b6")
+
+[node name="8" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=611000188]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "8"
+script = ExtResource("5_ev3b6")
+
+[node name="9" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=304715150]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "9"
+script = ExtResource("5_ev3b6")
+
+[node name="10" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer" unique_id=2062867511]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "10"
+script = ExtResource("5_ev3b6")
 
 [node name="Credits Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer" unique_id=273292982]
 unique_name_in_owner = true
@@ -468,6 +510,7 @@ text = "Exit"
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer/1" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Level Select Panel/BoxContainer/1" method="_on_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer/UP" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_up_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer/DOWN" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_down_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls/VBoxContainer/LEFT" to="MarginContainer/VBoxContainer/HBoxContainer/BoxContainer/MarginContainer/Settings Panel/MarginContainer/VBoxContainer/controls" method="_on_left_button_down"]

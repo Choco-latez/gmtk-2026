@@ -15,6 +15,7 @@ bg_color = Color(1, 1, 1, 1)
 
 [node name="AntiGravLevelPart2" type="Node2D" unique_id=494657100]
 script = ExtResource("1_ctijy")
+index_of_music_to_play = 2
 metadata/_custom_type_script = "uid://diwfi7436hw1t"
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1997935233]

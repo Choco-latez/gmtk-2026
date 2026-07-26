@@ -5,10 +5,12 @@ var Levels = [
 	"res://Map/platformPart1.tscn",
 	"res://Map/platformPart2.tscn",
 	"res://Map/antiGravPart1.tscn",
-	"res://Map/antiGravPart2.tscn",
+	"res://Map/antigrav.tscn",
 	"res://Map/level 4.tscn",
+	"res://Map/antiGravPart2.tscn",
 	"res://Map/double jumps.tscn",
 	"res://Map/divePart1.tscn",
+	"res://Map/double_jump.tscn",
 	"res://Map/boss_battle.tscn"
 ]
 var current_level : int = 0

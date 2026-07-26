@@ -2,7 +2,10 @@ extends Control
 
 @export var Levels : Array[PackedScene]
 
-
+func _ready() -> void:
+	for child_indx in %"Level Select Panel".get_node("BoxContainer").get_child_count():
+		if child_indx > Savedata.unlocked_levels:
+			%"Level Select Panel".get_node("BoxContainer").get_child(child_indx).invalid()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
