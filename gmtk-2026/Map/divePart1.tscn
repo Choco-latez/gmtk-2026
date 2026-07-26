@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/Player.tscn" id="3_eq5s0"]
 [ext_resource type="PackedScene" uid="uid://n5k1cvfb7bpu" path="res://Map/exit_door.tscn" id="4_0hghb"]
 [ext_resource type="PackedScene" uid="uid://cesnrjpymgyr4" path="res://UI/sign_popup.tscn" id="6_oc3u8"]
+[ext_resource type="PackedScene" uid="uid://b8qmp4t5kgr5b" path="res://UI/return_to_main_menu.tscn" id="6_svtt1"]
 [ext_resource type="PackedScene" uid="uid://c4c3u1ieaa1cr" path="res://Entities/sign_entity.tscn" id="9_hmes1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aig7r"]
@@ -49,6 +50,10 @@ visible = false
 [node name="Countdown" parent="UI" unique_id=1818328806 instance=ExtResource("2_2wg82")]
 unique_name_in_owner = true
 countdown_time = 8.0
+
+[node name="Return to Main Menu" parent="UI" unique_id=2092631578 instance=ExtResource("6_svtt1")]
+offset_top = 112.0
+offset_bottom = 112.0
 
 [node name="Player" parent="." unique_id=1420188091 instance=ExtResource("3_eq5s0")]
 position = Vector2(19, 54)

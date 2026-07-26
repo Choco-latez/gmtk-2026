@@ -19,3 +19,6 @@ var unlocked_levels : int = 0
 var fastdeath : bool = false
 
 var no_boss_cutscene : bool = false
+
+func _physics_process(delta: float) -> void:
+	print(get_tree().current_scene)

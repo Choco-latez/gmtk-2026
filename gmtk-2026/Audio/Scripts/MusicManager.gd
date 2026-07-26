@@ -12,7 +12,7 @@ var cur_music = 0
 func _ready() -> void:
 	SignalBus.connect("new_music",swap_music)
 	set_bus("Music")
-	#set_stream(Musics[0])
+	set_stream(Musics[0])
 	play()
 
 func swap_music(index):

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://42inx7lbpdpe" path="res://Entities/platform_entity.tscn" id="7_ucmmn"]
 [ext_resource type="PackedScene" uid="uid://vjdcb7y2mlkl" path="res://Entities/progress_node.tscn" id="8_556qv"]
 [ext_resource type="PackedScene" uid="uid://bf0tp1d4suvgu" path="res://UI/countdown.tscn" id="10_rtrtw"]
+[ext_resource type="PackedScene" uid="uid://b8qmp4t5kgr5b" path="res://UI/return_to_main_menu.tscn" id="11_gshrx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mgyn"]
 bg_color = Color(1, 1, 1, 1)
@@ -95,5 +96,7 @@ visible = false
 [node name="Countdown" parent="UI" unique_id=1818328806 instance=ExtResource("10_rtrtw")]
 unique_name_in_owner = true
 countdown_time = 8.0
+
+[node name="Return to Main Menu" parent="UI" unique_id=2092631578 instance=ExtResource("11_gshrx")]
 
 [editable path="PlatformEntity"]

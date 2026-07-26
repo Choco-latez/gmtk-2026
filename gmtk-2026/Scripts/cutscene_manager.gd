@@ -13,6 +13,8 @@ func stop_music():
 	MusicManager.mute = true
 	MusicManager.stop()
 
+func fin():
+	SignalBus.load_finish()
 
 func _physics_process(delta: float) -> void:
 	if beginning:

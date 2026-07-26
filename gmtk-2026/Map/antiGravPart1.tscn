@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cnh4lfg38bgb1" path="res://Entities/lever_node.tscn" id="7_eisxa"]
 [ext_resource type="PackedScene" uid="uid://bf0tp1d4suvgu" path="res://UI/countdown.tscn" id="8_awdf8"]
 [ext_resource type="Script" uid="uid://dsce2w5d40j7w" path="res://Entities/Scripts/countdown_manager.gd" id="8_xgaxe"]
+[ext_resource type="PackedScene" uid="uid://b8qmp4t5kgr5b" path="res://UI/return_to_main_menu.tscn" id="11_xdu8u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkqo1"]
 bg_color = Color(1, 1, 1, 1)
@@ -72,5 +73,7 @@ visible = false
 [node name="Countdown" parent="UI" unique_id=1818328806 instance=ExtResource("8_awdf8")]
 unique_name_in_owner = true
 countdown_time = 8.0
+
+[node name="Return to Main Menu" parent="UI" unique_id=2092631578 instance=ExtResource("11_xdu8u")]
 
 [connection signal="turned_on" from="LeverNode" to="LeverNode/Countdown Manager" method="_on_lever_node_turned_on"]

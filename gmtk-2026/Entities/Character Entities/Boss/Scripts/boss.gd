@@ -19,6 +19,8 @@ func start_music():
 	MusicManager.swap_music(3)
 	MusicManager.play()
 
+	
+
 func debris():
 	var debris = debris_fall.instantiate()
 	debris.position = Vector2(%Player.position.x ,0)
