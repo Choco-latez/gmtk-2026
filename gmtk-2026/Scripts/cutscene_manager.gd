@@ -19,7 +19,7 @@ func fin():
 func _physics_process(delta: float) -> void:
 	if beginning:
 		if Input.is_action_just_pressed("USE"):
-			%Player.apply_gravity(!%Player.gravity)
+			%Player.apply_gravity(!%Player.gravity, false)
 		if %Camera2D.position.x != %Player.position.x + 150:
 			if %Player.position.x + 150 > %Camera2D.position.x:
 				%Camera2D.position.x = %Player.position.x + 150
@@ -39,15 +39,13 @@ func _physics_process(delta: float) -> void:
 	if in_fight:
 		%"Time Bar".value = $Timer.time_left
 		if Input.is_action_just_pressed("USE"):
-			%Player.apply_gravity(!%Player.gravity)
+			%Player.apply_gravity(!%Player.gravity, false)
 	if ending_fight_anim:
 		pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var tween = get_tree().create_tween()
-	if body is Player: # prevent player from moving during cutscene
-		body.velocity = Vector2.ZERO
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(%Camera2D,"position",Vector2.ZERO,1)
 	$Area2D.set_deferred("monitoring", false)

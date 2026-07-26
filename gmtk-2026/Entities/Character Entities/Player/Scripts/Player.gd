@@ -44,6 +44,7 @@ func honk_run():
 	tween.tween_property(self,"position",Vector2( position.x + 300  ,position.y), 2)
 
 func start_cutscene():
+	velocity = Vector2.ZERO
 	cutscene_control = true
 
 	
