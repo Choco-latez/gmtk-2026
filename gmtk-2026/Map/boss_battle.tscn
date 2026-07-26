@@ -1124,6 +1124,7 @@ position = Vector2(-146, -9)
 shape = SubResource("RectangleShape2D_r6c0r")
 
 [node name="Timer" type="Timer" parent="Cutscene manager" unique_id=1566918590]
+wait_time = 20.0
 
 [node name="Sign Entity" parent="." unique_id=930421180 instance=ExtResource("15_owbq1")]
 position = Vector2(-602, 78)
