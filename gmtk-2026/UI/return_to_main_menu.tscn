@@ -1,6 +1,28 @@
 [gd_scene format=3 uid="uid://b8qmp4t5kgr5b"]
 
 [ext_resource type="Script" uid="uid://ctgdu0kd15fbw" path="res://UI/Scripts/return_to_main_menu.gd" id="1_3dbmx"]
+[ext_resource type="FontFile" uid="uid://cg2ujug2km488" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_x0g40"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rspf5"]
+bg_color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a1qy"]
+bg_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="Theme" id="Theme_ghnt8"]
+default_font = ExtResource("1_x0g40")
+default_font_size = 24
+Label/constants/outline_size = 4
+ProgressBar/styles/background = SubResource("StyleBoxFlat_rspf5")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_4a1qy")
 
 [node name="Return to Main Menu" type="Control" unique_id=2092631578]
 visible = false
@@ -10,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ghnt8")
 script = ExtResource("1_3dbmx")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=624781193]
