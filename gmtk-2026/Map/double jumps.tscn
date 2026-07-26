@@ -54,8 +54,7 @@ position = Vector2(935, 108)
 
 [node name="Sign Entity" parent="." unique_id=930421180 instance=ExtResource("5_6pkm4")]
 position = Vector2(16, 128)
-sign_title = "Engineer's notes"
-Signtext = "The captain's really come across something amazing... although, I do wonder if it's stable enough for the ship?"
+Signtext = "I hope this ship blows up"
 
 [node name="ProgressNode" parent="." unique_id=1792870276 instance=ExtResource("6_aqc6c")]
 position = Vector2(18, 430)

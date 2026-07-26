@@ -4,8 +4,13 @@
 [ext_resource type="Script" uid="uid://diwfi7436hw1t" path="res://Map/Map.gd" id="1_xkqo1"]
 [ext_resource type="PackedScene" uid="uid://b148ktydjt3f7" path="res://Entities/Character Entities/Player/Player.tscn" id="2_ly6ej"]
 [ext_resource type="PackedScene" uid="uid://wrigd1uj0bjb" path="res://Map/spike_tilemap.tscn" id="3_xkqo1"]
+[ext_resource type="PackedScene" uid="uid://cesnrjpymgyr4" path="res://UI/sign_popup.tscn" id="4_iywf3"]
 [ext_resource type="PackedScene" uid="uid://n5k1cvfb7bpu" path="res://Map/exit_door.tscn" id="5_dk4pj"]
+[ext_resource type="PackedScene" uid="uid://c4c3u1ieaa1cr" path="res://Entities/sign_entity.tscn" id="5_fl34o"]
 [ext_resource type="PackedScene" uid="uid://b8qmp4t5kgr5b" path="res://UI/return_to_main_menu.tscn" id="6_plma5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkqo1"]
 bg_color = Color(1, 1, 1, 1)
@@ -22,6 +27,175 @@ tile_set = ExtResource("1_blbgt")
 
 [node name="Spike Tilemap" parent="Tilemaps" unique_id=1612097963 instance=ExtResource("3_xkqo1")]
 tile_map_data = PackedByteArray("AAAaABEAAAAAAAMAAAAbABEAAAABAAMAAAAcABEAAAABAAMAAAAdABEAAAABAAMAAAAeABEAAAABAAMAAAAfABEAAAACAAMAAAA=")
+
+[node name="Node2D" type="Node2D" parent="Tilemaps" unique_id=546349281]
+
+[node name="Panel" type="Panel" parent="Tilemaps/Node2D" unique_id=1710871492]
+offset_left = 26.0
+offset_top = 92.0
+offset_right = 27.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel2" type="Panel" parent="Tilemaps/Node2D" unique_id=1388974970]
+offset_left = 26.0
+offset_top = 92.0
+offset_right = 30.0
+offset_bottom = 93.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel3" type="Panel" parent="Tilemaps/Node2D" unique_id=549058107]
+offset_left = 26.0
+offset_top = 95.0
+offset_right = 30.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel4" type="Panel" parent="Tilemaps/Node2D" unique_id=1979990158]
+offset_left = 29.0
+offset_top = 92.0
+offset_right = 30.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel5" type="Panel" parent="Tilemaps/Node2D" unique_id=1550525472]
+offset_left = 31.0
+offset_top = 95.0
+offset_right = 32.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel6" type="Panel" parent="Tilemaps/Node2D" unique_id=2028742890]
+offset_left = 31.0
+offset_top = 95.0
+offset_right = 34.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel7" type="Panel" parent="Tilemaps/Node2D" unique_id=154204711]
+offset_left = 35.0
+offset_top = 95.0
+offset_right = 36.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel8" type="Panel" parent="Tilemaps/Node2D" unique_id=184917066]
+offset_left = 36.0
+offset_top = 99.0
+offset_right = 38.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel9" type="Panel" parent="Tilemaps/Node2D" unique_id=221391493]
+offset_left = 36.0
+offset_top = 95.0
+offset_right = 38.0
+offset_bottom = 97.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel10" type="Panel" parent="Tilemaps/Node2D" unique_id=475729207]
+offset_left = 39.0
+offset_top = 95.0
+offset_right = 42.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel11" type="Panel" parent="Tilemaps/Node2D" unique_id=543663545]
+offset_left = 39.0
+offset_top = 99.0
+offset_right = 42.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel12" type="Panel" parent="Tilemaps/Node2D" unique_id=50039569]
+offset_left = 39.0
+offset_top = 96.0
+offset_right = 40.0
+offset_bottom = 97.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel13" type="Panel" parent="Tilemaps/Node2D" unique_id=133872731]
+offset_left = 41.0
+offset_top = 98.0
+offset_right = 42.0
+offset_bottom = 99.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel14" type="Panel" parent="Tilemaps/Node2D" unique_id=667938311]
+offset_left = 39.0
+offset_top = 97.0
+offset_right = 42.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel15" type="Panel" parent="Tilemaps/Node2D" unique_id=862556855]
+offset_left = 43.0
+offset_top = 95.0
+offset_right = 46.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel16" type="Panel" parent="Tilemaps/Node2D" unique_id=367071005]
+offset_left = 43.0
+offset_top = 99.0
+offset_right = 46.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel17" type="Panel" parent="Tilemaps/Node2D" unique_id=968513947]
+offset_left = 43.0
+offset_top = 96.0
+offset_right = 44.0
+offset_bottom = 97.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel18" type="Panel" parent="Tilemaps/Node2D" unique_id=1926652101]
+offset_left = 45.0
+offset_top = 98.0
+offset_right = 46.0
+offset_bottom = 99.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel19" type="Panel" parent="Tilemaps/Node2D" unique_id=264285895]
+offset_left = 43.0
+offset_top = 97.0
+offset_right = 46.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel20" type="Panel" parent="Tilemaps/Node2D" unique_id=2040746488]
+offset_left = 32.0
+offset_top = 102.0
+offset_right = 34.0
+offset_bottom = 107.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel21" type="Panel" parent="Tilemaps/Node2D" unique_id=95303197]
+offset_left = 32.0
+offset_top = 107.0
+offset_right = 38.0
+offset_bottom = 109.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Panel22" type="Panel" parent="Tilemaps/Node2D" unique_id=354547314]
+offset_left = 34.0
+offset_top = 102.0
+offset_right = 38.0
+offset_bottom = 104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="Sign Popup" parent="." unique_id=172546286 node_paths=PackedStringArray("signs") instance=ExtResource("4_iywf3")]
+signs = [NodePath("../Sign Entity")]
+
+[node name="Sign Entity" parent="." unique_id=930421180 instance=ExtResource("5_fl34o")]
+position = Vector2(31, 118)
+sign_title = "Default Controls"
+Signtext = "WASD to move
+X to jump
+C to interact
+Hold Esc to return to menu
+
+Controls may be changed in settings"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1802866554]
 visible = false
