@@ -80,3 +80,4 @@ Be cautious, as Diving will cause the time between gravity changes to shorten wh
 
 [node name="Sign Entity" parent="." unique_id=930421180 instance=ExtResource("9_hmes1")]
 position = Vector2(354, -26)
+Signtext = "I don't know what's up, but boss has been acting really weird... steer clear of him."
